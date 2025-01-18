@@ -1,0 +1,123 @@
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour
+{
+    public bool isActivePlayer = false;
+
+    public GameObject main_camera;
+
+    private float moveSpeed = 7f;
+    public Transform orientation;
+
+    private float horizontalInput;
+    private float verticalInput;
+
+    Vector3 moveDirection;
+
+    private Rigidbody rb;
+
+    private float playerHeight = 2f;
+    public LayerMask groundLayer;
+    private bool isGrounded = true;
+    private float groundDrag = 5f;
+
+    private float jumpForce = 12f;
+    private float jumpCoolDown = 0.25f;
+    private float airMultiplier = 0.4f;
+    private bool readyToJump = true;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+    }
+
+    private void Update()
+    {
+        if (isActivePlayer)
+        {
+            GroundCheck();
+            GetInput();
+        }
+    }
+
+    
+
+    private void FixedUpdate()
+    {
+        if (isActivePlayer)
+        {
+            MovePlayer();
+            //RotatePlayer();
+        }
+    }
+
+    private void GroundCheck()
+    {
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundLayer);
+        if (isGrounded)
+        {
+            rb.linearDamping = groundDrag;
+        }
+        else
+        {
+            rb.linearDamping = 0f;
+        }
+        //Debug.Log(isGrounded);
+    }
+
+    private void GetInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+
+        if(Input.GetKeyDown(KeyCode.Space) && readyToJump && isGrounded)
+        {
+            Jump();
+            Invoke("ResetJump", jumpCoolDown);
+        }
+    }
+
+    private void MovePlayer()
+    {
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        if (isGrounded)
+        {
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            
+        }
+        else if(!isGrounded)
+        {
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
+        SpeedControl();
+    }
+
+    private void SpeedControl()
+    {
+        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+        if(flatVel.magnitude > moveSpeed)
+        {
+            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
+        }
+    }
+
+    private void Jump()
+    {
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        readyToJump = false;
+    }
+
+    private void ResetJump()
+    {
+        readyToJump = true;
+    }
+
+    private void RotatePlayer()
+    {
+        transform.rotation = Quaternion.Euler(transform.rotation.x, main_camera.transform.rotation.y, transform.rotation.z);
+    }
+}
