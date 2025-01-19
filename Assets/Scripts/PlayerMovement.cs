@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
 
-    private float playerHeight = 2f;
+    public float playerHeight = 2f;
     public LayerMask groundLayer;
     private bool isGrounded = true;
     private float groundDrag = 5f;
