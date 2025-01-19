@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public bool isActivePlayer = false;
-
+    public Animator animator;
     public GameObject main_camera;
 
     private float moveSpeed = 7f;
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
 
-    private float playerHeight = 2f;
+    public float playerHeight = 2f;
     public LayerMask groundLayer;
     private bool isGrounded = true;
     private float groundDrag = 5f;
@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
             rb.linearDamping = 0f;
         }
         //Debug.Log(isGrounded);
+        animator.SetBool("inAir", !isGrounded);
     }
 
     private void GetInput()
@@ -102,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
         }
+        animator.SetFloat("speed", flatVel.magnitude);
     }
 
     private void Jump()
@@ -109,10 +111,13 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         readyToJump = false;
+        animator.SetBool("isJumping", true);
     }
 
     private void ResetJump()
     {
+        //readyToJump = true;
+        animator.SetBool("isJumping", false);
         readyToJump = true;
     }
 
