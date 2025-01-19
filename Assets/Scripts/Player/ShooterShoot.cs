@@ -4,6 +4,7 @@ using UnityEngine;
 public class ShooterShoot : MonoBehaviour
 {
     [SerializeField] Camera maincamera;
+    [SerializeField] Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,16 +15,16 @@ public class ShooterShoot : MonoBehaviour
     void Update()
     {
         if(Input.GetMouseButtonDown(0)){
-            //burada ateş animasyonunun triggerını başlat ve animasyona shoot eventi ata şimdilik fonksiyonu burada çalıştırdım
-            Shoot();
+            animator.SetTrigger("isShooting");
         }
     }
 
-    void Shoot(){
+    public void Shoot(){
         RaycastHit hit;
+        Debug.Log("shoot");
         if(Physics.Raycast(maincamera.transform.position,maincamera.transform.forward,out hit)){
             if(hit.collider.CompareTag("enemy")){
-                Debug.Log("enemy hit!");
+                hit.collider.gameObject.GetComponent<HealthScript>().TakeDamage(1);
             }
         }
     }
