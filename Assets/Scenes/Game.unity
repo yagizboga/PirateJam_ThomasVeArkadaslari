@@ -5351,7 +5351,7 @@ GameObject:
   - component: {fileID: 471462692}
   - component: {fileID: 471462691}
   - component: {fileID: 471462690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12336,8 +12336,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5338998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1658553187}
   - {fileID: 1321506105}
@@ -12667,7 +12667,7 @@ Transform:
   m_GameObject: {fileID: 1166056939}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000000016298145, y: -0.00000010179281, z: 0.00004363301, w: 1}
-  m_LocalPosition: {x: -0.0001, y: 0.1001, z: 0.1419}
+  m_LocalPosition: {x: -0, y: 0.156, z: 0.149}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16176,6 +16176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActivePlayer: 0
+  animator: {fileID: 0}
   main_camera: {fileID: 0}
   orientation: {fileID: 984771030}
   playerHeight: 2
@@ -18830,6 +18831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActivePlayer: 1
+  animator: {fileID: 3582018275116596929}
   main_camera: {fileID: 0}
   orientation: {fileID: 1996954727}
   playerHeight: 2
@@ -18895,7 +18897,7 @@ Transform:
   m_GameObject: {fileID: 1792969781}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60, y: 1, z: -10.01}
+  m_LocalPosition: {x: -62.247, y: 9.11, z: -2.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22717,10 +22719,10 @@ Animator:
   m_GameObject: {fileID: 7790698337996750337}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3dba4756c115cb549b8fa72c1d9aba78, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
