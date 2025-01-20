@@ -1240,14 +1240,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainTemp
       objectReference: {fileID: 0}
-    - target: {fileID: 7717654786445878262, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.2306771
-      objectReference: {fileID: 0}
-    - target: {fileID: 7717654786445878262, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8839
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
