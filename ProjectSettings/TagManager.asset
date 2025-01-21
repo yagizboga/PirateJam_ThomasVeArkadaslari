@@ -6,6 +6,7 @@ TagManager:
   tags:
   - shooter
   - enemy
+  - Shovel
   layers:
   - Default
   - TransparentFX

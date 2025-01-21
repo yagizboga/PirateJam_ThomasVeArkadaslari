@@ -13,11 +13,16 @@ public class CoalPlayer : MonoBehaviour
 
     public GameObject attackShovel;
     public GameObject diggingShovel;
+    public GameObject coal;
+
+    private bool isInOven = false;
+    private bool isInCoalBox = false;
     private void Start()
     {
         animator = GetComponent<Animator>();
         attackShovel.SetActive(true);
         diggingShovel.SetActive(false);
+        coal.SetActive(false);
     }
     void Update()
     {
@@ -60,6 +65,10 @@ public class CoalPlayer : MonoBehaviour
             {
                 isDigging = false;
                 animator.SetBool("isDigging", false);
+            }
+            if(!isReadyToCarry && coal.activeSelf == true)
+            {
+                coal.SetActive(false);
             }
         }
     }
@@ -109,5 +118,44 @@ public class CoalPlayer : MonoBehaviour
     {
         isReadyToCarry = true;
         animator.SetBool("isReadyToCarry", true);
+        
+    }
+
+    public void SetCoalActive() 
+    {
+        if (coal.activeSelf == false && isInCoalBox)
+        {
+            coal.SetActive(true);
+        }
+    }
+
+    public void SetCoalDeactive()
+    {
+        if (coal.activeSelf == true)
+        {
+            coal.SetActive(false);
+            if (isInOven)
+            {
+                //
+                // train speed & fuel amount ++
+                //
+            }
+        }
+    }
+
+    public void SetIsReadyToCarryFalse()
+    {
+        isReadyToCarry = false;
+        animator.SetBool("isReadyToCarry", false);
+    }
+
+    public void SetInOven(bool inOven)
+    {
+        isInOven = inOven;
+    }
+
+    public void SetInCoalBox(bool inCoalBox)
+    {
+        isInCoalBox = inCoalBox;
     }
 }   
