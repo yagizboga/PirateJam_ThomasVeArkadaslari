@@ -28,4 +28,8 @@ public class ShooterShoot : MonoBehaviour
             }
         }
     }
+
+    public void StopShooting(){
+        animator.SetTrigger("isNotShooting");
+    }
 }
