@@ -1177,7 +1177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &996481081
 Transform:
   m_ObjectHideFlags: 0
@@ -1186,15 +1186,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996481080}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.01742398, y: -0.1788802, z: 0.20882173, w: -0.961297}
-  m_LocalPosition: {x: -0.331, y: 0.049, z: -0.381}
+  m_LocalRotation: {x: 0.18030679, y: 0.73832685, z: -0.5529884, w: 0.34141883}
+  m_LocalPosition: {x: -0.062, y: 0.051, z: 0.044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 624175609}
   - {fileID: 665260574}
-  m_Father: {fileID: 1386980745010064382}
-  m_LocalEulerAnglesHint: {x: 0, y: 0.9, z: -18}
+  m_Father: {fileID: 3677724531900458285}
+  m_LocalEulerAnglesHint: {x: 70, y: -243, z: -379}
 --- !u!1 &1001166136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,7 +2610,6 @@ Transform:
   - {fileID: 9125033979287182816}
   - {fileID: 5891233520004294120}
   - {fileID: 1211525494}
-  - {fileID: 996481081}
   m_Father: {fileID: 2558202234326074317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1433377694351534966
@@ -2975,7 +2974,7 @@ Transform:
   m_GameObject: {fileID: 7703073297311667773}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000000016298145, y: -0.00000010179281, z: 0.00004363301, w: 1}
-  m_LocalPosition: {x: -0, y: 0.23, z: 0.144}
+  m_LocalPosition: {x: 0.002, y: 0.129, z: 0.158}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3253,6 +3252,7 @@ Transform:
   - {fileID: 700309524387513450}
   - {fileID: 5755492283375135844}
   - {fileID: 2223096411386032871}
+  - {fileID: 996481081}
   m_Father: {fileID: 1094415128825507921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3755831449902736605
@@ -4894,6 +4894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45b1301b13479248ba7e46c0974e86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackShovel: {fileID: 1211525493}
+  diggingShovel: {fileID: 996481080}
 --- !u!95 &8740302896976317471
 Animator:
   serializedVersion: 7
