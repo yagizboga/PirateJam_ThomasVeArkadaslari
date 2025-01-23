@@ -10,8 +10,12 @@ public class EnemyShoot : MonoBehaviour
     GameObject shooter;
     [SerializeField] GameObject bulletspawnpoint;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject head;
+    [SerializeField] GameObject arm1;
+    [SerializeField] GameObject arm2;
     float cooldown = 2f;
     Vector3 direction;
+    Vector3 bodyRotation;
     void Awake(){
         agent = GetComponent<NavMeshAgent>();
         
@@ -26,7 +30,8 @@ public class EnemyShoot : MonoBehaviour
     void Update()
     {
         direction = (shooter.transform.position - bulletspawnpoint.transform.position).normalized; 
-        gameObject.transform.rotation =  Quaternion.LookRotation(direction);
+        bodyRotation = new Vector3(direction.x,0,direction.z);
+        gameObject.transform.rotation =  Quaternion.LookRotation(bodyRotation);  
         if(agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance +.1f){
             animator.SetBool("isShooting",true);
         }
@@ -44,4 +49,6 @@ public class EnemyShoot : MonoBehaviour
             }
         }
     }
+
+   
 }
