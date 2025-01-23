@@ -19,7 +19,10 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false; 
     }
 
-
+    private void FixedUpdate()
+    {
+        player.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
 
     private void Update()
     {
@@ -34,7 +37,7 @@ public class PlayerCam : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
-        player.rotation = Quaternion.Euler(0, yRotation, 0);
+        
 
         /*float spineRotationX = Mathf.Clamp(xRotation / 3f, -30f, 30f); // bu kýsýmlar animayon yuzuden calismamaya basladi, late update ile cozdum ama
         bodySpine.transform.localRotation = Quaternion.Euler(spineRotationX, 0, 0);/////////*/

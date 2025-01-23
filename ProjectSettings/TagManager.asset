@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - train
   - Shovel
+  - DriverPlayer
   layers:
   - Default
   - TransparentFX
