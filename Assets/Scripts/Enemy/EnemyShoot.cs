@@ -9,6 +9,7 @@ public class EnemyShoot : MonoBehaviour
     NavMeshAgent agent;
     GameObject shooter;
     [SerializeField] GameObject bulletspawnpoint;
+    [SerializeField] Animator animator;
     float cooldown = 2f;
     Vector3 direction;
     void Awake(){
@@ -19,16 +20,22 @@ public class EnemyShoot : MonoBehaviour
     void Start()
     {
         shooter = GameObject.FindGameObjectWithTag("shooter");
-        StartCoroutine(ShootingLoop());
     }
 
     // Update is called once per frame
     void Update()
     {
         direction = (shooter.transform.position - bulletspawnpoint.transform.position).normalized; 
+        gameObject.transform.rotation =  Quaternion.LookRotation(direction);
+        if(agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance +.1f){
+            animator.SetBool("isShooting",true);
+        }
+        else{
+            animator.SetBool("isShooting",false);
+        }
     }
 
-    void Shoot(){
+    public void Shoot(){
         RaycastHit hit;
         Debug.DrawRay(bulletspawnpoint.transform.position,direction,Color.blue);
         if(Physics.Raycast(bulletspawnpoint.transform.position,direction, out hit)){
@@ -36,18 +43,5 @@ public class EnemyShoot : MonoBehaviour
                 Debug.Log("hit!");
             }
         }
-    }
-
-    IEnumerator ShootingLoop(){
-        //shootingi animasyon evenete ekle buradan animasyon settrigger shoot true ayarla.
-        while(true){
-            if((shooter.transform.position - transform.position).magnitude <= agent.stoppingDistance + 0.1f){
-                Debug.Log("stopped");
-                Shoot();
-                
-            }
-            yield return new WaitForSeconds(cooldown);
-        }
-
     }
 }
