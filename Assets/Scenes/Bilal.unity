@@ -4412,10 +4412,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3395874644069579721, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
-      propertyPath: coal_player
-      value: 
-      objectReference: {fileID: 8740302896976317470}
     - target: {fileID: 6674928461446662024, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
       propertyPath: m_Name
       value: TrainTemp
@@ -10692,17 +10688,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8740302896976317470 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 718559075392931447, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
-  m_PrefabInstance: {fileID: 4764136697937600701}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45b1301b13479248ba7e46c0974e86c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8747770214939936614
 Transform:
   m_ObjectHideFlags: 0
