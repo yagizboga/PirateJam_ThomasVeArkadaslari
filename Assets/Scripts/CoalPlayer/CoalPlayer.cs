@@ -17,9 +17,12 @@ public class CoalPlayer : MonoBehaviour
 
     private bool isInOven = false;
     private bool isInCoalBox = false;
+
+    private CoalEconomy coalEconomy;
     private void Start()
     {
         animator = GetComponent<Animator>();
+        coalEconomy = GameObject.FindGameObjectWithTag("Oven").GetComponent<CoalEconomy>();
         attackShovel.SetActive(true);
         diggingShovel.SetActive(false);
         coal.SetActive(false);
@@ -94,6 +97,7 @@ public class CoalPlayer : MonoBehaviour
     {
         attackShovel.SetActive(true);
         diggingShovel.SetActive(false);
+        isInOven = false;
     }
 
     public void SetDigShovel()
@@ -139,6 +143,7 @@ public class CoalPlayer : MonoBehaviour
                 //
                 // train speed & fuel amount ++
                 //
+                coalEconomy.AddCoal(15f);
             }
         }
     }

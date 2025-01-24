@@ -9,6 +9,8 @@ TagManager:
   - train
   - Shovel
   - DriverPlayer
+  - CoalPlayer
+  - Oven
   layers:
   - Default
   - TransparentFX

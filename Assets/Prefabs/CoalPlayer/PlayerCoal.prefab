@@ -1136,7 +1136,7 @@ GameObject:
   - component: {fileID: 718559075392931447}
   m_Layer: 0
   m_Name: PlayerCoal
-  m_TagString: Untagged
+  m_TagString: CoalPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1266,6 +1266,7 @@ MonoBehaviour:
   attackShovel: {fileID: 3254853222256014736}
   diggingShovel: {fileID: 4943917471187545688}
   coal: {fileID: 4554487961446234921}
+  coalEconomy: {fileID: 0}
 --- !u!1 &1701338800214135194
 GameObject:
   m_ObjectHideFlags: 0
