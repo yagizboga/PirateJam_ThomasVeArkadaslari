@@ -4412,10 +4412,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3152879975193629907, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
-      propertyPath: coal_player
-      value: 
-      objectReference: {fileID: 8740302896976317470}
     - target: {fileID: 3395874644069579721, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
       propertyPath: coal_player
       value: 
