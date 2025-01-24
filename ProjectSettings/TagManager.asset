@@ -8,6 +8,8 @@ TagManager:
   - enemy
   - train
   - Shovel
+  - Vector
+  - IntroManager
   layers:
   - Default
   - TransparentFX
@@ -16,13 +18,13 @@ TagManager:
   - Water
   - UI
   - Ground
+  - invisible
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
+  - glow
   - 
   - 
   - 

@@ -5,6 +5,7 @@ public class ShooterShoot : MonoBehaviour
 {
     [SerializeField] Camera maincamera;
     [SerializeField] Animator animator;
+    [SerializeField] ParticleSystem shootingparticle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +17,7 @@ public class ShooterShoot : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0)){
             animator.SetTrigger("isShooting");
+            shootingparticle.Play();
         }
     }
 

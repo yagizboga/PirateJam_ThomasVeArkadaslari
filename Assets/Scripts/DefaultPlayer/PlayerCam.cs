@@ -20,7 +20,9 @@ public class PlayerCam : MonoBehaviour
     }
 
 
-
+    void FixedUpdate(){
+        player.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
     private void Update()
     {
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
@@ -34,9 +36,9 @@ public class PlayerCam : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
-        player.rotation = Quaternion.Euler(0, yRotation, 0);
+        
 
-        /*float spineRotationX = Mathf.Clamp(xRotation / 3f, -30f, 30f); // bu kýsýmlar animayon yuzuden calismamaya basladi, late update ile cozdum ama
+        /*float spineRotationX = Mathf.Clamp(xRotation / 3f, -30f, 30f); // bu kï¿½sï¿½mlar animayon yuzuden calismamaya basladi, late update ile cozdum ama
         bodySpine.transform.localRotation = Quaternion.Euler(spineRotationX, 0, 0);/////////*/
 
     }
