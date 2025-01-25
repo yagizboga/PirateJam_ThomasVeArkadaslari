@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<dialogues>
+<dialogue name="dialogue1">
+    <question>
+        "question1"
+    </question>
+    <answer1>
+        "answer1"    
+    </answer1>
+    <answer2>
+        "answer2"
+    </answer2>
+</dialogue>
+
+</dialogues>
