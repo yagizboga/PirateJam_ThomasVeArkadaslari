@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ShooterCam : MonoBehaviour
@@ -13,11 +14,13 @@ public class ShooterCam : MonoBehaviour
 
     public GameObject bodySpine;
 
+    // Recoil deðiþkenleri
     private float recoilX = 0f;
     private float recoilY = 0f;
-    public float recoilSmoothness = 20f; 
-    public float maxRecoilX = 1f; // Y recoil
-    public float maxRecoilY = 0.5f; // X recoil
+    public float recoilSmoothness = 5f; // Geri dönüþ pürüzsüzlüðü
+    public float maxRecoilX = 5f; // Y ekseninde maksimum geri tepme
+    public float maxRecoilY = 2f; // X ekseninde maksimum geri tepme
+    private bool isRecoiling = false; // Recoil iþlemi aktif mi
 
     private void Start()
     {
@@ -40,19 +43,12 @@ public class ShooterCam : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        xRotation -= recoilX;
-        yRotation += recoilY;
-
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        // Recoil etkisini ekle
+        transform.rotation = Quaternion.Euler(xRotation - recoilX, yRotation + recoilY, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
-        recoilX = Mathf.Lerp(recoilX, 0, Time.deltaTime * recoilSmoothness);
-        recoilY = Mathf.Lerp(recoilY, 0, Time.deltaTime * recoilSmoothness);
-
         if (Input.GetMouseButtonDown(0))
-        {
             ApplyRecoil();
-        }
     }
 
     private void LateUpdate()
@@ -63,7 +59,49 @@ public class ShooterCam : MonoBehaviour
 
     public void ApplyRecoil()
     {
-        recoilX += Random.Range(maxRecoilX * 0.8f, maxRecoilX); 
-        recoilY += Random.Range(-maxRecoilY, maxRecoilY); 
+        if (isRecoiling) return; // Zaten bir recoil iþlemi devam ediyorsa yenisini baþlatma
+        StartCoroutine(RecoilCoroutine());
+    }
+
+    private IEnumerator RecoilCoroutine()
+    {
+        isRecoiling = true;
+
+        // Geri tepme hareketi
+        float recoilTime = 0.1f; // Geri tepme süresi
+        float returnTime = 0.2f; // Geri dönüþ süresi
+        float elapsedTime = 0f;
+
+        float initialRecoilX = 0f;
+        float targetRecoilX = Random.Range(maxRecoilX * 0.8f, maxRecoilX);
+
+        float initialRecoilY = 0f;
+        float targetRecoilY = Random.Range(-maxRecoilY, maxRecoilY);
+
+        // Yukarý doðru geri tepme
+        while (elapsedTime < recoilTime)
+        {
+            elapsedTime += Time.deltaTime;
+            recoilX = Mathf.Lerp(initialRecoilX, targetRecoilX, elapsedTime / recoilTime);
+            recoilY = Mathf.Lerp(initialRecoilY, targetRecoilY, elapsedTime / recoilTime);
+            yield return null;
+        }
+
+        // Baþlangýç pozisyonuna dönüþ
+        elapsedTime = 0f;
+        initialRecoilX = recoilX;
+        initialRecoilY = recoilY;
+
+        while (elapsedTime < returnTime)
+        {
+            elapsedTime += Time.deltaTime;
+            recoilX = Mathf.Lerp(initialRecoilX, 0, elapsedTime / returnTime);
+            recoilY = Mathf.Lerp(initialRecoilY, 0, elapsedTime / returnTime);
+            yield return null;
+        }
+
+        recoilX = 0f;
+        recoilY = 0f;
+        isRecoiling = false;
     }
 }
