@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <dialogues>
-<dialogue name="dialogue1">
+<dialogue>
     <question>
         "question1"
     </question>
@@ -11,6 +11,27 @@
     <answer2>
         "answer2"
     </answer2>
+    <nextdialogueindex1>1</nextdialogueindex1>
+    <nextdialogueindex2>2</nextdialogueindex2>
 </dialogue>
+
+<dialogue>
+    <question>"question1 sol </question>
+    <answer1>"answer2 sol"</answer1>
+    <answer2>"answer 2 sağ"</answer2>
+    <nextdialogueindex1>-1</nextdialogueindex1>
+    <nextdialogueindex2>-1</nextdialogueindex2>
+</dialogue>
+
+
+<dialogue>
+    <question>question 1 sağ</question>
+    <answer1>answer3 sol</answer1>
+    <answer2>answer3 sağ</answer2>
+    <nextdialogueindex1>-1</nextdialogueindex1>
+    <nextdialogueindex2>-1</nextdialogueindex2>
+</dialogue>
+
+
 
 </dialogues>

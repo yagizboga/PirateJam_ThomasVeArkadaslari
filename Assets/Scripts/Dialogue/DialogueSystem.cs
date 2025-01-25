@@ -13,6 +13,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI answer2text;
     [SerializeField] TextAsset dialoguefile;
     int currentdialogueindex=0;
+    DialogueCollection dialogueCollection;
 
 
     void Start(){
@@ -27,17 +28,37 @@ public class DialogueSystem : MonoBehaviour
                 DialogueCollection LoadedDialogue = serializer.Deserialize(reader) as DialogueCollection;
 
                 if(LoadedDialogue!=null){
-                    DialogueData firstdialogue = LoadedDialogue.dialogues[0];
-                    dialogue.text = firstdialogue.question;
-                    answer1text.text = firstdialogue.answer1;
-                    answer2text.text = firstdialogue.answer2;
+                    dialogueCollection = LoadedDialogue;
                 }
             }
         }
     }
 
     void ShowDialogue(int index){
-        
+        if(dialogueCollection != null && index>=0 && index <dialogueCollection.dialogues.Length){
+            DialogueData currentDialogue = dialogueCollection.dialogues[index];
+            dialogue.text = currentDialogue.question;
+            answer1text.text = currentDialogue.answer1;
+            answer2text.text = currentDialogue.answer2;
+        }
+    }
+
+    public void OnAnswer1Selected(){
+        Debug.Log("button 1 clicked");
+        if(dialogueCollection !=null && currentdialogueindex >= 0){
+            int nextindex = dialogueCollection.dialogues[currentdialogueindex].nextdialogueindex1;
+            currentdialogueindex = nextindex;
+            ShowDialogue(currentdialogueindex);
+        }
+    }
+
+    public void OnAnswer2Selected(){
+        Debug.Log("button 2 clicked");
+        if(dialogueCollection != null && currentdialogueindex >= 0){
+            int nextindex = dialogueCollection.dialogues[currentdialogueindex].nextdialogueindex2;
+            currentdialogueindex = nextindex;
+            ShowDialogue(currentdialogueindex);
+        }
     }
 
 
