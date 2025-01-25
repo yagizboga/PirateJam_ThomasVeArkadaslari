@@ -18,7 +18,7 @@ public class CoalEconomy : MonoBehaviour
         if(coalBalance > 0)
         {
             coalBalance -= Time.deltaTime;
-            Debug.Log("Coal Balance: " + coalBalance);
+            //Debug.Log("Coal Balance: " + coalBalance);
         }
         else
         {
