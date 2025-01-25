@@ -13,7 +13,7 @@ public class ShooterShoot : MonoBehaviour
     public float shootCoolDown = 0.162f;
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
