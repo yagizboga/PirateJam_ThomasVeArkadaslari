@@ -10,7 +10,7 @@ public class ShooterShoot : MonoBehaviour
 
     private bool canShoot = true;
     public ShooterCam recoilCam;
-    public float shootCoolDown = 0.17f;
+    public float shootCoolDown = 0.162f;
     void Start()
     {
         
