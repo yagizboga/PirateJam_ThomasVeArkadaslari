@@ -17,8 +17,8 @@ public class ShooterCam : MonoBehaviour
     private float recoilX = 0f;
     private float recoilY = 0f;
     public float recoilSmoothness = 5f; // not effecting anymore
-    public float maxRecoilX = 5f; 
-    public float maxRecoilY = 2f; 
+    public float maxRecoilX = 6f; 
+    public float maxRecoilY = 1.5f; 
     public float recoilTime = 0.1f;
     public float returnTime = 0.2f;
     private bool isRecoiling = false;
@@ -49,8 +49,8 @@ public class ShooterCam : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation - recoilX, yRotation + recoilY, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
-        if (Input.GetMouseButtonDown(0))
-            ApplyRecoil();
+        /*if (Input.GetMouseButtonDown(0))
+            ApplyRecoil();*/
     }
 
     private void LateUpdate()

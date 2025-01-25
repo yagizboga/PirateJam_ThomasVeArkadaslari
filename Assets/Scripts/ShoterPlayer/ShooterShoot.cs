@@ -9,6 +9,8 @@ public class ShooterShoot : MonoBehaviour
     [SerializeField] ParticleSystem shootingparticle;
 
     private bool canShoot = true;
+    public ShooterCam recoilCam;
+    public float shootCoolDown = 0.17f;
     void Start()
     {
         
@@ -22,6 +24,7 @@ public class ShooterShoot : MonoBehaviour
             animator.SetTrigger("isShooting");
             Shoot();
             shootingparticle.Play();
+            recoilCam.ApplyRecoil();
             canShoot = false;
             StartCoroutine(ShootCoolDown());
         }
@@ -44,7 +47,7 @@ public class ShooterShoot : MonoBehaviour
 
     private IEnumerator ShootCoolDown()
     {
-        yield return new WaitForSeconds(0.20f);
+        yield return new WaitForSeconds(shootCoolDown);
         canShoot = true;
     }
 }
