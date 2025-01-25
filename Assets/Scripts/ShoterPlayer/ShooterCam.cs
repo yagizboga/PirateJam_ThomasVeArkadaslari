@@ -14,13 +14,15 @@ public class ShooterCam : MonoBehaviour
 
     public GameObject bodySpine;
 
-    // Recoil deðiþkenleri
     private float recoilX = 0f;
     private float recoilY = 0f;
-    public float recoilSmoothness = 5f; // Geri dönüþ pürüzsüzlüðü
-    public float maxRecoilX = 5f; // Y ekseninde maksimum geri tepme
-    public float maxRecoilY = 2f; // X ekseninde maksimum geri tepme
-    private bool isRecoiling = false; // Recoil iþlemi aktif mi
+    public float recoilSmoothness = 5f; // not effecting anymore
+    public float maxRecoilX = 5f; 
+    public float maxRecoilY = 2f; 
+    public float recoilTime = 0.1f;
+    public float returnTime = 0.2f;
+    private bool isRecoiling = false;
+    private Coroutine activeRecoilCoroutine = null;
 
     private void Start()
     {
@@ -59,23 +61,28 @@ public class ShooterCam : MonoBehaviour
 
     public void ApplyRecoil()
     {
-        if (isRecoiling) return; // Zaten bir recoil iþlemi devam ediyorsa yenisini baþlatma
-        StartCoroutine(RecoilCoroutine());
+        if (activeRecoilCoroutine != null)
+        {
+            StopCoroutine(activeRecoilCoroutine); // Aktif recoil iþlemi varsa durdur
+        }
+
+        // Geçerli recoil deðerlerini al
+        float initialRecoilX = recoilX;
+        float initialRecoilY = recoilY;
+
+        // Yeni recoil coroutine'ini baþlat
+        activeRecoilCoroutine = StartCoroutine(RecoilCoroutine(initialRecoilX, initialRecoilY));
     }
 
-    private IEnumerator RecoilCoroutine()
+    private IEnumerator RecoilCoroutine(float initialRecoilX, float initialRecoilY)
     {
         isRecoiling = true;
 
         // Geri tepme hareketi
-        float recoilTime = 0.1f; // Geri tepme süresi
-        float returnTime = 0.2f; // Geri dönüþ süresi
         float elapsedTime = 0f;
 
-        float initialRecoilX = 0f;
+        // Yeni hedef recoil deðerlerini belirle
         float targetRecoilX = Random.Range(maxRecoilX * 0.8f, maxRecoilX);
-
-        float initialRecoilY = 0f;
         float targetRecoilY = Random.Range(-maxRecoilY, maxRecoilY);
 
         // Yukarý doðru geri tepme
