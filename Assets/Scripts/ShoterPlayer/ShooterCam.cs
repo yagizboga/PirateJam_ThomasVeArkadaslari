@@ -13,10 +13,16 @@ public class ShooterCam : MonoBehaviour
 
     public GameObject bodySpine;
 
+    private float recoilX = 0f;
+    private float recoilY = 0f;
+    public float recoilSmoothness = 20f; 
+    public float maxRecoilX = 1f; // Y recoil
+    public float maxRecoilY = 0.5f; // X recoil
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false; 
+        Cursor.visible = false;
     }
 
     private void FixedUpdate()
@@ -34,20 +40,30 @@ public class ShooterCam : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
+        xRotation -= recoilX;
+        yRotation += recoilY;
+
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
-        
+        recoilX = Mathf.Lerp(recoilX, 0, Time.deltaTime * recoilSmoothness);
+        recoilY = Mathf.Lerp(recoilY, 0, Time.deltaTime * recoilSmoothness);
 
-        /*float spineRotationX = Mathf.Clamp(xRotation / 3f, -30f, 30f); // bu kýsýmlar animayon yuzuden calismamaya basladi, late update ile cozdum ama
-        bodySpine.transform.localRotation = Quaternion.Euler(spineRotationX, 0, 0);/////////*/
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            ApplyRecoil();
+        }
     }
 
     private void LateUpdate()
     {
-        // late update, animasyonlardan da sonra calisiyormus, bu sayede animasyon hareketi uzerinde ek hareketler saglayabiliyoruz kod ile
-        float targetXRotation = Mathf.Clamp(xRotation / 3, -30f, 30f); 
+        float targetXRotation = Mathf.Clamp(xRotation / 3, -30f, 30f);
         bodySpine.transform.localRotation = Quaternion.Euler(targetXRotation, 0, 0);
+    }
+
+    public void ApplyRecoil()
+    {
+        recoilX += Random.Range(maxRecoilX * 0.8f, maxRecoilX); 
+        recoilY += Random.Range(-maxRecoilY, maxRecoilY); 
     }
 }
