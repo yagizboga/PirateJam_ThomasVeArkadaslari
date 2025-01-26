@@ -21,9 +21,6 @@ public class EnemyShoot : MonoBehaviour
     public ParticleSystem shootParticle;
     private PlayerHealth shooterHealth;
 
-    int hittest = 0;
-    int shoottest = 0;
-
 
     void Awake()
     {
@@ -49,7 +46,6 @@ public class EnemyShoot : MonoBehaviour
             {
                 animator.SetTrigger("shoot");
                 canShoot = false;
-                Debug.Log("Shoot:" + ++shoottest);
                 Shoot();
                 StartCoroutine(ShootCoolDown());
             }

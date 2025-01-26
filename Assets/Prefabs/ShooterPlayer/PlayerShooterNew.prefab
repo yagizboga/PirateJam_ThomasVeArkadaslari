@@ -2103,6 +2103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df8d6f285c8f8244af01c339edeb546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ragdoll: {fileID: 4438674168195566587, guid: 5a7fd7c0743341d4fac743b0029dfd25, type: 3}
 --- !u!1 &2433939450347265335
 GameObject:
   m_ObjectHideFlags: 0

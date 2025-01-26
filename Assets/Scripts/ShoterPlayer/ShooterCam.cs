@@ -21,7 +21,7 @@ public class ShooterCam : MonoBehaviour
     public float maxRecoilY = 1.5f; 
     public float recoilTime = 0.1f;
     public float returnTime = 0.2f;
-    private bool isRecoiling = false;
+    //private bool isRecoiling = false;
     private Coroutine activeRecoilCoroutine = null;
 
     public GameObject rifle;
@@ -83,8 +83,6 @@ public class ShooterCam : MonoBehaviour
 
     private IEnumerator RecoilCoroutine(float initialRecoilX, float initialRecoilY)
     {
-        isRecoiling = true;
-
         float elapsedTime = 0f;
 
         float targetRecoilX = Random.Range(maxRecoilX * 0.8f, maxRecoilX);
@@ -112,7 +110,6 @@ public class ShooterCam : MonoBehaviour
 
         recoilX = 0f;
         recoilY = 0f;
-        isRecoiling = false;
     }
 
     public void ApplyRecoilForRifle()
