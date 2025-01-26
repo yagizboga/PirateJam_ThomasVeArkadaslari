@@ -35,7 +35,7 @@ public class ShooterShoot : MonoBehaviour
         Debug.Log("shoot");
         if(Physics.Raycast(maincamera.transform.position,maincamera.transform.forward,out hit)){
             if(hit.collider.CompareTag("enemy")){
-                hit.collider.gameObject.GetComponent<HealthScript>().TakeDamage(1);
+                hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
                 Debug.Log("enemy hit ");
             }
         }

@@ -1,41 +1,50 @@
 using System.Collections;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyShoot : MonoBehaviour
 {
-    NavMeshAgent agent;
-    GameObject shooter;
+    private NavMeshAgent agent;
+    private GameObject shooter;
     [SerializeField] GameObject bulletspawnpoint;
     [SerializeField] Animator animator;
-    [SerializeField] GameObject head;
-    [SerializeField] GameObject arm1;
-    [SerializeField] GameObject arm2;
-    float cooldown = 2f;
-    Vector3 direction;
-    Vector3 bodyRotation;
-    void Awake(){
-        agent = GetComponent<NavMeshAgent>();
-        
 
+    public float cooldown = 0.75f;
+    private Vector3 direction;
+    private Vector3 bodyRotation;
+    private bool canShoot = true;
+    public GameObject spine;
+    public float angleFixOffset = -40f;
+
+    void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
     }
     void Start()
     {
         shooter = GameObject.FindGameObjectWithTag("shooter");
     }
 
-    // Update is called once per frame
     void Update()
     {
         direction = (shooter.transform.position - bulletspawnpoint.transform.position).normalized; 
         bodyRotation = new Vector3(direction.x,0,direction.z);
-        gameObject.transform.rotation =  Quaternion.LookRotation(bodyRotation);  
-        if(agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance +.1f){
+        gameObject.transform.rotation =  Quaternion.LookRotation(bodyRotation); 
+        
+        if(agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance +.1f)
+        {
             animator.SetBool("isShooting",true);
+            if (canShoot)
+            {
+                animator.SetTrigger("shoot");
+                canShoot = false; 
+                StartCoroutine(ShootCoolDown());
+            }
         }
-        else{
+        else
+        {
             animator.SetBool("isShooting",false);
         }
     }
@@ -50,5 +59,24 @@ public class EnemyShoot : MonoBehaviour
         }
     }
 
-   
+    private IEnumerator ShootCoolDown()
+    {
+        yield return new WaitForSeconds(cooldown);
+        canShoot=true;
+    }
+
+    private void LateUpdate()
+    {
+        if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
+        {
+            spine.transform.LookAt(shooter.transform);
+            spine.transform.rotation = Quaternion.Euler(
+            spine.transform.eulerAngles.x,
+            spine.transform.eulerAngles.y - angleFixOffset, // Y ekseninde 25 derece sola çevir
+            spine.transform.eulerAngles.z
+            );
+        }
+
+    }
+
 }
