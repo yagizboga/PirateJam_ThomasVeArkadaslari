@@ -10,6 +10,10 @@ TagManager:
   - Shovel
   - Vector
   - IntroManager
+  - DriverPlayer
+  - Oven
+  - CoalPlayer
+  - PlayerTakeHitPosition
   layers:
   - Default
   - TransparentFX
@@ -27,10 +31,10 @@ TagManager:
   - glow
   - 
   - 
+  - Ragdoll
   - 
   - 
-  - 
-  - 
+  - Player
   - 
   - 
   - 
