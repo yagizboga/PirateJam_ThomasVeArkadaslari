@@ -13,16 +13,28 @@ PrefabInstance:
       value: cactus1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47aa2d69a1aafc64cad913e0aaf80735, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 47aa2d69a1aafc64cad913e0aaf80735, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 47aa2d69a1aafc64cad913e0aaf80735, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 47aa2d69a1aafc64cad913e0aaf80735, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 958.8981
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47aa2d69a1aafc64cad913e0aaf80735, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.170367
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47aa2d69a1aafc64cad913e0aaf80735, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 628.3194
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47aa2d69a1aafc64cad913e0aaf80735, type: 3}
       propertyPath: m_LocalRotation.w
@@ -51,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 47aa2d69a1aafc64cad913e0aaf80735, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 47aa2d69a1aafc64cad913e0aaf80735, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 47aa2d69a1aafc64cad913e0aaf80735, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
