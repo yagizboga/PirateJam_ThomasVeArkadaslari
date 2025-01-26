@@ -4957,7 +4957,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletspawnpoint: {fileID: 6260757063239847444}
   animator: {fileID: 4634626062855382716}
-  shootPositionPlayerNeck: {fileID: 0}
   shootCooldown: 0.75
   spine: {fileID: 7786771148157843242}
   angleFixOffset: -40
@@ -5233,6 +5232,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5195048882033904264, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 366175167995203695, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -5291,6 +5294,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2101139628344923070}
+    - targetCorrespondingSourceObject: {fileID: -5195048882033904264, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8385135364290403311}
   m_SourcePrefab: {fileID: 100100000, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
 --- !u!4 &616507967934063845 stripped
 Transform:
@@ -5320,6 +5326,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyShoot: {fileID: 2299312066701894189}
+--- !u!1 &2800272361391631957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5195048882033904264, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
+  m_PrefabInstance: {fileID: 1241843892056464173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8385135364290403311
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800272361391631957}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.806713, y: 0.3964747, z: 0.18384628}
+  m_Center: {x: 0.000000002320675, y: 0.5610658, z: -0.00000009309161}
 --- !u!95 &4634626062855382716 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
