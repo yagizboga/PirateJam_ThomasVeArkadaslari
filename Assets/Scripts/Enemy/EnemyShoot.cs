@@ -35,6 +35,7 @@ public class EnemyShoot : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(agent.remainingDistance);
         direction = (shootPositionPlayerNeck.transform.position - bulletspawnpoint.transform.position).normalized; 
         bodyRotation = new Vector3(direction.x,0,direction.z);
         gameObject.transform.rotation =  Quaternion.LookRotation(bodyRotation); 

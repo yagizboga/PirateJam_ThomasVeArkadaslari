@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         agent.SetDestination(shooter.position);
         animator.SetFloat("speed",agent.velocity.magnitude);
