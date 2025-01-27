@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private float airMultiplier = 0.4f;
     private bool readyToJump = true;
 
+    private bool onLadder = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -81,17 +83,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        if (isGrounded)
+        if (!onLadder)  
         {
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-            
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+            if (isGrounded)
+            {
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+
+            }
+            else if (!isGrounded)
+            {
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            }
+            SpeedControl();
         }
-        else if(!isGrounded)
-        {
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-        }
-        SpeedControl();
     }
 
     private void SpeedControl()
@@ -124,5 +129,15 @@ public class PlayerMovement : MonoBehaviour
     private void RotatePlayer()
     {
         transform.rotation = Quaternion.Euler(transform.rotation.x, main_camera.transform.rotation.y, transform.rotation.z);
+    }
+
+    public bool GetIsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public void SetOnLadder(bool ladder)
+    {
+        onLadder = ladder;
     }
 }
