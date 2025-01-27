@@ -40,6 +40,10 @@ public class ShooterShoot : MonoBehaviour
                 Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
                 //Debug.Log("enemy hit ");
             }
+            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ragdoll"))
+            {
+                Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+            }
         }
     }
 

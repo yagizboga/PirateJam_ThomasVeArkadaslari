@@ -14,7 +14,6 @@ public class LadderClimb : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(verticalInput);
         if (onLadder)
         {
             verticalInput = Input.GetAxis("Vertical");
