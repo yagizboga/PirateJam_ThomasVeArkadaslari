@@ -6,38 +6,43 @@ public class Repair : MonoBehaviour
     private bool isRepairing = false;
     private Animator animator;
     public GameObject hammer;
+    private PlayerMovement playerMovement;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
         hammer.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (playerMovement.isActivePlayer)
         {
-            isRepairing = true;
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            isRepairing = false;
-        }
-
-        if (isRepairing && canRepair)
-        {
-            animator.SetBool("isRepairing", true);
-            if (hammer.activeSelf == false)
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                hammer.SetActive(true);
+                isRepairing = true;
             }
-        }
-        else
-        {
-            animator.SetBool("isRepairing", false);
-            if (hammer.activeSelf == true)
+            if (Input.GetKeyUp(KeyCode.Mouse0))
             {
-                hammer.SetActive(false);
+                isRepairing = false;
+            }
+
+            if (isRepairing && canRepair)
+            {
+                animator.SetBool("isRepairing", true);
+                if (hammer.activeSelf == false)
+                {
+                    hammer.SetActive(true);
+                }
+            }
+            else
+            {
+                animator.SetBool("isRepairing", false);
+                if (hammer.activeSelf == true)
+                {
+                    hammer.SetActive(false);
+                }
             }
         }
     }

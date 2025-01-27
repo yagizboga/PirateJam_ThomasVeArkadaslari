@@ -1243,9 +1243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c475c408e899c14c951280e44fc0d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivePlayer: 1
+  isActivePlayer: 0
   animator: {fileID: 1525300136714398951}
-  main_camera: {fileID: 0}
+  main_camera: {fileID: 5773589849789409166}
   orientation: {fileID: 7261550195952884223}
   playerHeight: 2
   groundLayer:
@@ -1266,7 +1266,6 @@ MonoBehaviour:
   attackShovel: {fileID: 3254853222256014736}
   diggingShovel: {fileID: 4943917471187545688}
   coal: {fileID: 4554487961446234921}
-  coalEconomy: {fileID: 0}
 --- !u!1 &1701338800214135194
 GameObject:
   m_ObjectHideFlags: 0

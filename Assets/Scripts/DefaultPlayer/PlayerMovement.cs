@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        main_camera.SetActive(false);
     }
 
     private void Update()
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isActivePlayer)
         {
+            main_camera.SetActive(true);
             MovePlayer();
             //RotatePlayer();
         }

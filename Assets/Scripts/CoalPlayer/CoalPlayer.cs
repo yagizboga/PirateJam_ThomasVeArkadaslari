@@ -19,9 +19,12 @@ public class CoalPlayer : MonoBehaviour
     private bool isInCoalBox = false;
 
     private CoalEconomy coalEconomy;
+
+    private PlayerMovement playerMovement;
     private void Start()
     {
         animator = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
         coalEconomy = GameObject.FindGameObjectWithTag("Oven").GetComponent<CoalEconomy>();
         attackShovel.SetActive(true);
         diggingShovel.SetActive(false);
@@ -29,49 +32,52 @@ public class CoalPlayer : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (playerMovement.isActivePlayer)
         {
-            if (!isAttacking && isHoldingShovel && !isDigging)
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                isAttacking = true;
-                animator.SetBool("isShovelAttacking", true);
-                if ((attackShovel.activeSelf == false) || diggingShovel.activeSelf == true)
+                if (!isAttacking && isHoldingShovel && !isDigging)
                 {
-                    if (!isDigging)
+                    isAttacking = true;
+                    animator.SetBool("isShovelAttacking", true);
+                    if ((attackShovel.activeSelf == false) || diggingShovel.activeSelf == true)
                     {
-                        attackShovel.SetActive(true);
-                        diggingShovel.SetActive(false);
+                        if (!isDigging)
+                        {
+                            attackShovel.SetActive(true);
+                            diggingShovel.SetActive(false);
+                        }
                     }
                 }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            if (!isAttacking && isHoldingShovel && !isDigging && canDig)
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                canDig = false;
-                isDigging = true;
-                animator.SetBool("isDigging", true);
-                if ((attackShovel.activeSelf == true) || diggingShovel.activeSelf == false)
+                if (!isAttacking && isHoldingShovel && !isDigging && canDig)
                 {
-                    if (!isAttacking)
+                    canDig = false;
+                    isDigging = true;
+                    animator.SetBool("isDigging", true);
+                    if ((attackShovel.activeSelf == true) || diggingShovel.activeSelf == false)
                     {
-                        attackShovel.SetActive(false);
-                        diggingShovel.SetActive(true);
+                        if (!isAttacking)
+                        {
+                            attackShovel.SetActive(false);
+                            diggingShovel.SetActive(true);
+                        }
                     }
                 }
             }
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse1))
-        {
-            if (isDigging)
+            if (Input.GetKeyUp(KeyCode.Mouse1))
             {
-                isDigging = false;
-                animator.SetBool("isDigging", false);
-            }
-            if(!isReadyToCarry && coal.activeSelf == true)
-            {
-                coal.SetActive(false);
+                if (isDigging)
+                {
+                    isDigging = false;
+                    animator.SetBool("isDigging", false);
+                }
+                if (!isReadyToCarry && coal.activeSelf == true)
+                {
+                    coal.SetActive(false);
+                }
             }
         }
     }

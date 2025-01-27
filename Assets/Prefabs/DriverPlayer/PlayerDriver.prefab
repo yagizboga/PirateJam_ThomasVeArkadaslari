@@ -2035,9 +2035,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c475c408e899c14c951280e44fc0d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivePlayer: 1
+  isActivePlayer: 0
   animator: {fileID: 5941601983345605088}
-  main_camera: {fileID: 0}
+  main_camera: {fileID: 7403969255520828277}
   orientation: {fileID: 8027394917147038672}
   playerHeight: 2
   groundLayer:

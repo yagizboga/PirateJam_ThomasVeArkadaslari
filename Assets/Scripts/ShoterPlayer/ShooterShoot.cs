@@ -12,7 +12,6 @@ public class ShooterShoot : MonoBehaviour
     private bool canShoot = true;
     public ShooterCam recoilCam;
     private float shootCoolDown = 0.162f;
-    private float reloadTime = 3f;
 
     private int ammoCount = 25;
     private int maxAmmo = 25;
@@ -20,7 +19,7 @@ public class ShooterShoot : MonoBehaviour
 
     public GameObject magHand;
     public GameObject hand;
-    public float rotationSpeed = 7.5f;
+    public float rotationSpeed = 6f;
     private Transform headTransform;
 
     private float deltaTime = 0.0f;
@@ -87,7 +86,7 @@ public class ShooterShoot : MonoBehaviour
                         hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(2);              //////
                         Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal)); //////
                         Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal)); //////
-                        Debug.Log("HEADSHOT");                                                          //////
+                        //Debug.Log("HEADSHOT");                                                        //////
                     }                                                                                   //////
                 }                                                                                       ///////////////////////////////
             }
