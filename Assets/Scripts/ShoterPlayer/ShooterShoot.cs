@@ -7,6 +7,7 @@ public class ShooterShoot : MonoBehaviour
     [SerializeField] Camera maincamera;
     [SerializeField] Animator animator;
     [SerializeField] ParticleSystem shootingparticle;
+    [SerializeField] GameObject bloodEffectPrefab;
 
     private bool canShoot = true;
     public ShooterCam recoilCam;
@@ -36,6 +37,7 @@ public class ShooterShoot : MonoBehaviour
         if(Physics.Raycast(maincamera.transform.position,maincamera.transform.forward,out hit)){
             if(hit.collider.CompareTag("enemy")){
                 hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
+                Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
                 //Debug.Log("enemy hit ");
             }
         }

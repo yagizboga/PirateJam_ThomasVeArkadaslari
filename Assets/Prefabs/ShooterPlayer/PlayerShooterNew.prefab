@@ -2047,6 +2047,7 @@ MonoBehaviour:
   maincamera: {fileID: 4826041015535938757}
   animator: {fileID: 7458488014578865287}
   shootingparticle: {fileID: 8924073206292048085}
+  bloodEffectPrefab: {fileID: 1882245233095420313, guid: f2ee54b501210dc4e96a90a983e75720, type: 3}
   recoilCam: {fileID: 1456921953343327079}
   shootCoolDown: 0.162
 --- !u!114 &6108344752596464678
@@ -2103,6 +2104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df8d6f285c8f8244af01c339edeb546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
   ragdoll: {fileID: 4438674168195566587, guid: 5a7fd7c0743341d4fac743b0029dfd25, type: 3}
 --- !u!1 &2433939450347265335
 GameObject:
