@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
             }
 
             CopyTransforms(transform, spawnedRagdoll.transform);
-            Destroy(spawnedRagdoll, 20f);
+            //Destroy(spawnedRagdoll, 20f);
         }
     }
 
