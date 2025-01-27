@@ -21,17 +21,25 @@ public class ShooterShoot : MonoBehaviour
     public GameObject magHand;
     public GameObject hand;
     public float rotationSpeed = 7.5f;
+    private Transform headTransform;
+
+    private float deltaTime = 0.0f;
+
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Debug.Log(ammoCount);
-        if(Input.GetMouseButton(0) && canShoot && ammoCount > 0)
+
+        //DebugFPS();
+
+
+
+        //Debug.Log(ammoCount);
+        if (Input.GetMouseButton(0) && canShoot && ammoCount > 0)
         {
             animator.SetTrigger("isShooting");
             Shoot();
@@ -53,11 +61,38 @@ public class ShooterShoot : MonoBehaviour
     public void Shoot()
     {
         RaycastHit hit;
-        if(Physics.Raycast(maincamera.transform.position,maincamera.transform.forward,out hit)){
-            if(hit.collider.CompareTag("enemy")){
+        if(Physics.Raycast(maincamera.transform.position,maincamera.transform.forward,out hit))
+        {
+            if(hit.collider.CompareTag("enemy"))
+            {
                 hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
                 Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+
+                headTransform = null;                                                                   ///////////////////////////////
+                foreach (Transform child in hit.collider.transform.GetComponentsInChildren<Transform>())//////
+                {                                                                                       ////// HEADSHOT KONTROLU:
+                    if (child.gameObject.layer == LayerMask.NameToLayer("Head"))                        //////  
+                    {                                                                                   ////// HER HIT ICIN FOREACH YAPIYOR VE TUM CHILD OBJELERI KONTROL EDIYOR
+                        headTransform = child;                                                          ////// 
+                        break;                                                                          ////// PEFRORMANSI COK KOTU ETKILIYORSA BURAYI KOMPLE SIL
+                    }                                                                                   ////// 
+                }                                                                                       //////
+                Vector3 headPos = new Vector3(headTransform.position.x,                                 //////
+                    headTransform.position.y + 0.075f, headTransform.position.z);                       //////
+                if (headTransform != null)                                                              //////
+                {                                                                                       //////
+                    float distanceToHead = Vector3.Distance(hit.point, headPos);                        //////
+                    if (distanceToHead <= 0.12f)                                                        //////
+                    {                                                                                   //////
+                        hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(2);              //////
+                        Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal)); //////
+                        Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal)); //////
+                        Debug.Log("HEADSHOT");                                                          //////
+                    }                                                                                   //////
+                }                                                                                       ///////////////////////////////
             }
+
+
             else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ragdoll"))
             {
                 Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
@@ -140,5 +175,11 @@ public class ShooterShoot : MonoBehaviour
         obj.transform.localPosition = targetPosition;
     }
 
+    private void DebugFPS()
+    {
+        deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+        float fps = 1.0f / deltaTime;
+        Debug.Log("FPS: " + Mathf.Ceil(fps));
+    }
 
 }
