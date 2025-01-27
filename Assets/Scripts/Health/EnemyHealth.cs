@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
         {
             SpawnRagdoll();
             Destroy(gameObject);
+            health += 10;
         }
     }
 
