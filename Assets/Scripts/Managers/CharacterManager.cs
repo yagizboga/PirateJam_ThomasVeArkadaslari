@@ -8,19 +8,21 @@ public class CharacterManager : MonoBehaviour
     private GameObject shooterPlayerObj;   // 3rd
 
     private GameObject activePlayer;
+
     private PlayerMovement driverPlayerMovement;
     private PlayerMovement coalPlayerMovement;
     private PlayerMovement shooterPlayerMovement;
+
     private CoalPlayer coalPlayerScript;
 
     [SerializeField] private GameObject transitionCAM; 
-    [SerializeField] private float cameraMoveSpeed = 2.25f; 
+    [SerializeField] private float cameraMoveSpeed = 2.25f; // 3 yapilabilir
     [SerializeField] private float cameraHeight = 25f;
     [SerializeField] private float cameraOffsetFromHeadUp = 1.5f;
     private bool isInTransition = false;
 
-    private float XZsmallOffset = 0.15f;
-    private float YsmallOffset = 0.5f;
+    [SerializeField] private float XZsmallOffset = 0.5f;
+    [SerializeField] private float YsmallOffset = 0.6f;
     
 
     private void Start()
@@ -32,6 +34,7 @@ public class CharacterManager : MonoBehaviour
         driverPlayerMovement = driverPlayerObj.GetComponent<PlayerMovement>();
         coalPlayerMovement = coalPlayerObj.GetComponent<PlayerMovement>();
         shooterPlayerMovement = shooterPlayerObj.GetComponent<PlayerMovement>();
+
         coalPlayerScript = coalPlayerObj.GetComponent<CoalPlayer>();
 
         transitionCAM.SetActive(false); 
@@ -92,6 +95,10 @@ public class CharacterManager : MonoBehaviour
         if (activePlayer == coalPlayerObj)
         {
             coalPlayerScript.SetActiveShovel();
+        }
+        if(activePlayer == shooterPlayerObj)
+        {
+            shooterPlayerMovement.SetAnimatorActivePlayer(true);
         }
         Time.timeScale = 1f;
     }

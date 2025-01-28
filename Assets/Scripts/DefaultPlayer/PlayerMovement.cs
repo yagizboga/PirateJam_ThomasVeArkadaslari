@@ -160,4 +160,9 @@ public class PlayerMovement : MonoBehaviour
         isActivePlayer = isActive;
         main_camera.SetActive(isActive);
     }
+
+    public void SetAnimatorActivePlayer(bool isactive)
+    {
+        animator.SetBool("isActivePlayer", isactive);
+    }
 }

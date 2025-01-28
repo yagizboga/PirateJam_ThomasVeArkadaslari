@@ -8,34 +8,39 @@ public class RepairTrigger : MonoBehaviour
     private bool canRepair = false; 
     private float repairTime = 10f; 
     private float repairTimer = 0f;
+    private PlayerMovement driverMovement;
 
-    private bool isBroken = true; // false yap bunu, test icin true durumda
+    private bool isBroken = false; 
 
     private void Start()
     {
         driver = GameObject.FindGameObjectWithTag("DriverPlayer");
+        driverMovement = driver.GetComponent<PlayerMovement>();  
         repair = driver.GetComponent<Repair>();
     }
     private void Update()
     {
-        if (canRepair && Input.GetMouseButton(0) && isBroken)
+        if (driverMovement.isActivePlayer)
         {
-            repairTimer += Time.deltaTime;
-            Debug.Log(repairTimer);
-            if (repairTimer >= repairTime)
+            if (canRepair && Input.GetMouseButton(0) && isBroken)
             {
-                Debug.Log("Repair completed");
-                isBroken = false;
-                canRepair = false;
-                repair.SetCanRepair(false);
-                repairTimer = 0f;
+                repairTimer += Time.deltaTime;
+                Debug.Log("Remaining repair time: " + repairTimer);
+                if (repairTimer >= repairTime)
+                {
+                    Debug.Log("Repair completed");
+                    isBroken = false;
+                    canRepair = false;
+                    repair.SetCanRepair(false);
+                    repairTimer = 0f;
 
+                }
             }
-        }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            repairTimer = 0f;
+            if (Input.GetMouseButtonUp(0))
+            {
+                repairTimer = 0f;
+            }
         }
     }
 

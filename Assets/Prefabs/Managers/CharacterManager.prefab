@@ -129,6 +129,8 @@ MonoBehaviour:
   cameraMoveSpeed: 2.25
   cameraHeight: 25
   cameraOffsetFromHeadUp: 1.5
+  XZsmallOffset: 0.5
+  YsmallOffset: 0.6
 --- !u!1 &5984475988750966543
 GameObject:
   m_ObjectHideFlags: 0
