@@ -17,37 +17,42 @@ public class LadderClimb : MonoBehaviour
         if (onLadder)
         {
             verticalInput = Input.GetAxis("Vertical");
-            horizontalInput = Input.GetAxis("Horizontal");    
+            horizontalInput = Input.GetAxis("Horizontal");
 
-            if (verticalInput != 0 || horizontalInput != 0)
+            Vector3 climbDirection = Vector3.zero;
+
+            // Merdivenin yönüne göre hareket hesaplama
+            climbDirection += transform.up * verticalInput * climbSpeed; // Yukarý/Aþaðý
+            climbDirection += transform.right * horizontalInput * horizontalSpeed; // Sað/Sol
+
+            // Rigidbody hýzýný ayarla
+            rb.linearVelocity = climbDirection;
+
+            // Eðer hareket yoksa durdur
+            if (verticalInput == 0 && horizontalInput == 0)
             {
-                rb.linearVelocity = new Vector3(0, verticalInput * climbSpeed, 0 - (horizontalInput * horizontalSpeed));
-            }
-            else
-            {
-                rb.linearVelocity = new Vector3(0, 0, 0);
+                rb.linearVelocity = Vector3.zero;
             }
         }
-        if(playerMovement != null && playerMovement.GetIsGrounded() == true && (verticalInput < 0))
+
+        // Merdivenden inme
+        if (playerMovement != null && playerMovement.GetIsGrounded() == true && (verticalInput < 0))
         {
             onLadder = false;
-            if (playerMovement != null)
-            {
-                playerMovement.SetOnLadder(false);
-            }
+            playerMovement.SetOnLadder(false);
             rb.useGravity = true;
         }
-        if(inTrigger && verticalInput > 0 && onLadder == false)
+
+        // Merdivene týrmanma baþlangýcý
+        if (inTrigger && verticalInput > 0 && !onLadder)
         {
             onLadder = true;
-            if (playerMovement != null)
-            {
-                playerMovement.SetOnLadder(true);
-            }
+            playerMovement?.SetOnLadder(true);
             rb.linearVelocity = Vector3.zero;
             rb.useGravity = false;
         }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

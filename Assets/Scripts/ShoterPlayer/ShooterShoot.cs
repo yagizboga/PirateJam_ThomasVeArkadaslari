@@ -12,7 +12,6 @@ public class ShooterShoot : MonoBehaviour
     private bool canShoot = true;
     public ShooterCam recoilCam;
     private float shootCoolDown = 0.162f;
-    private float reloadTime = 3f;
 
     private int ammoCount = 25;
     private int maxAmmo = 25;
@@ -20,41 +19,57 @@ public class ShooterShoot : MonoBehaviour
 
     public GameObject magHand;
     public GameObject hand;
-    public float rotationSpeed = 7.5f;
+    public GameObject afkRifle;
+    public float rotationSpeed = 6f;
     private Transform headTransform;
 
     private float deltaTime = 0.0f;
+    private PlayerMovement playerMovement;
+    private GameObject crosshair;
 
+    public SkinnedMeshRenderer joints;
+    public SkinnedMeshRenderer meshes;
 
-    void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
+        crosshair = GameObject.FindGameObjectWithTag("Crosshair");
+        crosshair.SetActive(false);
     }
 
     void Update()
     {
-
-        //DebugFPS();
-
-
-
-        //Debug.Log(ammoCount);
-        if (Input.GetMouseButton(0) && canShoot && ammoCount > 0)
+        if (playerMovement.isActivePlayer)
         {
-            animator.SetTrigger("isShooting");
-            Shoot();
-            shootingparticle.Play();
-            recoilCam.ApplyRecoil();
-            canShoot = false;
-            StartCoroutine(ShootCoolDown());
+            ShadowEnable(false);
+            crosshair.SetActive(true);
+            afkRifle.SetActive(false);
+            //DebugFPS();
+            //Debug.Log(ammoCount);
+            if (Input.GetMouseButton(0) && canShoot && ammoCount > 0)
+            {
+                animator.SetTrigger("isShooting");
+                Shoot();
+                shootingparticle.Play();
+                recoilCam.ApplyRecoil();
+                canShoot = false;
+                StartCoroutine(ShootCoolDown());
+            }
+            if (ammoCount <= 0 && !isReloading)
+            {
+                Reload();
+            }
+            if (Input.GetKeyDown(KeyCode.R) && !isReloading && ammoCount < maxAmmo)
+            {
+                Reload();
+            }
         }
-        if(ammoCount <= 0 && !isReloading)
+        else
         {
-            Reload();
-        }
-        if (Input.GetKeyDown(KeyCode.R) && !isReloading && ammoCount < maxAmmo)
-        {
-            Reload();
+            crosshair.SetActive(false);
+            afkRifle.SetActive(true);
+            ShadowEnable(true);
         }
     }
 
@@ -87,7 +102,7 @@ public class ShooterShoot : MonoBehaviour
                         hit.collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(2);              //////
                         Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal)); //////
                         Instantiate(bloodEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal)); //////
-                        Debug.Log("HEADSHOT");                                                          //////
+                        //Debug.Log("HEADSHOT");                                                        //////
                     }                                                                                   //////
                 }                                                                                       ///////////////////////////////
             }
@@ -180,6 +195,17 @@ public class ShooterShoot : MonoBehaviour
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
         float fps = 1.0f / deltaTime;
         Debug.Log("FPS: " + Mathf.Ceil(fps));
+    }
+
+    public void ShadowEnable(bool enable)
+    {
+        joints.shadowCastingMode = enable
+            ? UnityEngine.Rendering.ShadowCastingMode.On
+            : UnityEngine.Rendering.ShadowCastingMode.Off;
+
+        meshes.shadowCastingMode = enable
+            ? UnityEngine.Rendering.ShadowCastingMode.On
+            : UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 
 }

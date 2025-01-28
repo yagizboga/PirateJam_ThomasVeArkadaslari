@@ -32,14 +32,28 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        main_camera.SetActive(false);
     }
 
     private void Update()
     {
         if (isActivePlayer)
         {
+            animator.SetBool("isActivePlayer", true);
+            if (main_camera.activeSelf == false)
+            {
+                main_camera.SetActive(true);
+            }
             GroundCheck();
             GetInput();
+        }
+        else
+        {
+            if (main_camera.activeSelf == true)
+            {
+                main_camera.SetActive(false);
+            }
+            animator.SetBool("isActivePlayer", false);
         }
     }
 
@@ -139,5 +153,16 @@ public class PlayerMovement : MonoBehaviour
     public void SetOnLadder(bool ladder)
     {
         onLadder = ladder;
+    }
+
+    public void SetIsActivePlayer(bool isActive) 
+    {
+        isActivePlayer = isActive;
+        main_camera.SetActive(isActive);
+    }
+
+    public void SetAnimatorActivePlayer(bool isactive)
+    {
+        animator.SetBool("isActivePlayer", isactive);
     }
 }

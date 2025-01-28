@@ -1,30 +1,47 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 10;
+    private int maxHealth = 10;
     private int health;
-    public GameObject ragdoll;
+    public GameObject ragdollActive;
+    public GameObject ragdollDeactive;
+
+    private int regenAmount = 1; 
+    private float regenDelay = 10f; 
+    private float lastDamageTime;
+
+    private bool isDead = false;
+
+    private PlayerMovement playerMovement;
 
     private void Start()
     {
+        playerMovement = GetComponent<PlayerMovement>();
         health = maxHealth;
+        lastDamageTime = Time.time;
+        StartCoroutine(HealthRegen());
     }
+
     public void TakeDamage(int hit)
     {
         health -= hit;
+        lastDamageTime = Time.time;
         //Debug.Log(health);
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
-            SpawnRagdoll();
+            isDead = true;
+            bool isActivePlayer = playerMovement.isActivePlayer;
+            SpawnRagdoll(isActivePlayer);
             Destroy(gameObject);
         }
     }
-    private void SpawnRagdoll()
+    private void SpawnRagdoll(bool isActivePlayer)
     {
-        if (ragdoll != null)
+        if (ragdollActive != null && isActivePlayer)
         {
-            GameObject spawnedRagdoll = Instantiate(ragdoll, transform.position, transform.rotation);
+            GameObject spawnedRagdoll = Instantiate(ragdollActive, transform.position, transform.rotation);
 
             Animator ragdollAnimator = spawnedRagdoll.GetComponent<Animator>();
             if (ragdollAnimator != null)
@@ -33,7 +50,18 @@ public class PlayerHealth : MonoBehaviour
             }
 
             CopyTransforms(transform, spawnedRagdoll.transform);
-            //Destroy(spawnedRagdoll, 20f);
+        }
+        else if (ragdollDeactive != null && !isActivePlayer)
+        {
+            GameObject spawnedRagdoll = Instantiate(ragdollDeactive, transform.position, transform.rotation);
+
+            Animator ragdollAnimator = spawnedRagdoll.GetComponent<Animator>();
+            if (ragdollAnimator != null)
+            {
+                ragdollAnimator.enabled = false;
+            }
+
+            CopyTransforms(transform, spawnedRagdoll.transform);
         }
     }
 
@@ -52,6 +80,26 @@ public class PlayerHealth : MonoBehaviour
                 CopyTransforms(sourceChild, destinationChild);
             }
         }
+    }
+
+    private IEnumerator HealthRegen()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1); 
+
+            if (Time.time - lastDamageTime >= regenDelay && health < maxHealth)
+            {
+                health += regenAmount;
+                health = Mathf.Clamp(health, 0, maxHealth);
+                //Debug.Log($"Health regenerated to: {health}");
+            }
+        }
+    }
+
+    public bool GetIsDead()
+    {
+        return isDead;
     }
 
 }
