@@ -20,7 +20,7 @@ public class CharacterManager : MonoBehaviour
     private CoalPlayer coalPlayerScript;
 
     [SerializeField] private GameObject transitionCAM; 
-    [SerializeField] private float cameraMoveSpeed = 2.25f; // 3 yapilabilir
+    [SerializeField] private float cameraMoveSpeed = 5f; // 5f for jam, less for later
     [SerializeField] private float cameraHeight = 25f;
     [SerializeField] private float cameraOffsetFromHeadUp = 1.5f;
     private bool isInTransition = false;

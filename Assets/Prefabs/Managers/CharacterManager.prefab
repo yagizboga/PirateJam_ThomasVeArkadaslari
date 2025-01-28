@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionCAM: {fileID: 2658005552041687969}
-  cameraMoveSpeed: 2.25
+  cameraMoveSpeed: 5
   cameraHeight: 25
   cameraOffsetFromHeadUp: 1.5
   XZsmallOffset: 0.5
