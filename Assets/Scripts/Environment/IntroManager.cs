@@ -6,8 +6,10 @@ public class IntroManager : MonoBehaviour
 {
     bool firsttvtriggered = false;
     bool secondtvtrigger = false;
-    [SerializeField] VideoPlayer firsttvplayer;
+    [SerializeField] VideoPlayer[] firsttvplayer;
     [SerializeField] VideoPlayer[] secondtvplayer;
+    [SerializeField] VideoClip firstclip;
+    [SerializeField] VideoClip secondclip;
 
     public void triggerfirsttv(){
         firsttvtriggered = true;
@@ -18,13 +20,17 @@ public class IntroManager : MonoBehaviour
     }
 
     void Update(){
-        if(firsttvtriggered && !firsttvplayer.isPlaying){
-            firsttvplayer.Play();
+        if(firsttvtriggered && !firsttvplayer[0].isPlaying){
+            for(int i=0;i<firsttvplayer.Length;i++){
+                firsttvplayer[i].clip = firstclip;
+                firsttvplayer[i].Play();
+            }
         }
-        if(secondtvtrigger && !secondtvplayer[0].isPlaying && !firsttvplayer.isPlaying){
-           for(int i = 0;i<secondtvplayer.Length;i++){
-            secondtvplayer[i].Play();
-           }
+        if(secondtvtrigger && !firsttvplayer[0].isPlaying){
+            for(int i=0;i<firsttvplayer.Length;i++){
+                firsttvplayer[i].clip = secondclip;
+                firsttvplayer[i].Play();
+            }
         }
 
     }
