@@ -27,6 +27,8 @@ public class ShooterShoot : MonoBehaviour
     private PlayerMovement playerMovement;
     private GameObject crosshair;
 
+    public SkinnedMeshRenderer joints;
+    public SkinnedMeshRenderer meshes;
 
     private void Start()
     {
@@ -40,6 +42,7 @@ public class ShooterShoot : MonoBehaviour
     {
         if (playerMovement.isActivePlayer)
         {
+            ShadowEnable(false);
             crosshair.SetActive(true);
             afkRifle.SetActive(false);
             //DebugFPS();
@@ -66,6 +69,7 @@ public class ShooterShoot : MonoBehaviour
         {
             crosshair.SetActive(false);
             afkRifle.SetActive(true);
+            ShadowEnable(true);
         }
     }
 
@@ -191,6 +195,17 @@ public class ShooterShoot : MonoBehaviour
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
         float fps = 1.0f / deltaTime;
         Debug.Log("FPS: " + Mathf.Ceil(fps));
+    }
+
+    public void ShadowEnable(bool enable)
+    {
+        joints.shadowCastingMode = enable
+            ? UnityEngine.Rendering.ShadowCastingMode.On
+            : UnityEngine.Rendering.ShadowCastingMode.Off;
+
+        meshes.shadowCastingMode = enable
+            ? UnityEngine.Rendering.ShadowCastingMode.On
+            : UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 
 }
