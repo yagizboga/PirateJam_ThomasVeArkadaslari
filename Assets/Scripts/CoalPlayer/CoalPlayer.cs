@@ -29,6 +29,7 @@ public class CoalPlayer : MonoBehaviour
         attackShovel.SetActive(true);
         diggingShovel.SetActive(false);
         coal.SetActive(false);
+        animator.SetBool("isHoldingShovel", true);
     }
     void Update()
     {

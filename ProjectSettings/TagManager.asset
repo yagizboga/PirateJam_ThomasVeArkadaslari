@@ -14,6 +14,7 @@ TagManager:
   - Oven
   - CoalPlayer
   - PlayerTakeHitPosition
+  - Crosshair
   layers:
   - Default
   - TransparentFX

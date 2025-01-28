@@ -1951,11 +1951,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5088533055677333160}
+  - component: {fileID: 7458488014578865287}
   - component: {fileID: 5970099965660801025}
   - component: {fileID: 1778399360718800584}
-  - component: {fileID: 6253233008302932019}
   - component: {fileID: 6108344752596464678}
-  - component: {fileID: 7458488014578865287}
+  - component: {fileID: 6253233008302932019}
   - component: {fileID: 1987124377066130291}
   m_Layer: 19
   m_Name: PlayerShooterNew
@@ -1982,6 +1982,28 @@ Transform:
   - {fileID: 4415839369647677144}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7458488014578865287
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359088529368734401}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
+  m_Controller: {fileID: 9100000, guid: 3dba4756c115cb549b8fa72c1d9aba78, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!136 &5970099965660801025
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2032,26 +2054,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 1
---- !u!114 &6253233008302932019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2359088529368734401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75fcb8f74c698de42a914216ee8db13c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maincamera: {fileID: 4826041015535938757}
-  animator: {fileID: 7458488014578865287}
-  shootingparticle: {fileID: 8924073206292048085}
-  bloodEffectPrefab: {fileID: 1882245233095420313, guid: f2ee54b501210dc4e96a90a983e75720, type: 3}
-  recoilCam: {fileID: 1456921953343327079}
-  magHand: {fileID: 8702706893305059502}
-  hand: {fileID: 4219159313215976444}
-  rotationSpeed: 6
 --- !u!114 &6108344752596464678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,28 +2074,26 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!95 &7458488014578865287
-Animator:
-  serializedVersion: 7
+--- !u!114 &6253233008302932019
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2359088529368734401}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3dba4756c115cb549b8fa72c1d9aba78, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fcb8f74c698de42a914216ee8db13c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maincamera: {fileID: 4826041015535938757}
+  animator: {fileID: 7458488014578865287}
+  shootingparticle: {fileID: 8924073206292048085}
+  bloodEffectPrefab: {fileID: 1882245233095420313, guid: f2ee54b501210dc4e96a90a983e75720, type: 3}
+  recoilCam: {fileID: 1456921953343327079}
+  magHand: {fileID: 8702706893305059502}
+  hand: {fileID: 4219159313215976444}
+  rotationSpeed: 6
 --- !u!114 &1987124377066130291
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,8 +39,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isActivePlayer)
         {
+            animator.SetBool("isActivePlayer", true);
+            if (main_camera.activeSelf == false)
+            {
+                main_camera.SetActive(true);
+            }
             GroundCheck();
             GetInput();
+        }
+        else
+        {
+            if (main_camera.activeSelf == true)
+            {
+                main_camera.SetActive(false);
+            }
+            animator.SetBool("isActivePlayer", false);
         }
     }
 
@@ -50,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isActivePlayer)
         {
-            main_camera.SetActive(true);
             MovePlayer();
             //RotatePlayer();
         }
@@ -141,5 +153,10 @@ public class PlayerMovement : MonoBehaviour
     public void SetOnLadder(bool ladder)
     {
         onLadder = ladder;
+    }
+
+    public void SetIsActivePlayer(bool isActive) 
+    {
+        isActivePlayer = isActive; 
     }
 }

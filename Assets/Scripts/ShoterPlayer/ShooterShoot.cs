@@ -23,37 +23,46 @@ public class ShooterShoot : MonoBehaviour
     private Transform headTransform;
 
     private float deltaTime = 0.0f;
+    private PlayerMovement playerMovement;
+    private GameObject crosshair;
 
 
-    void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
+        crosshair = GameObject.FindGameObjectWithTag("Crosshair");
+        crosshair.SetActive(false);
     }
 
     void Update()
     {
-
-        //DebugFPS();
-
-
-
-        //Debug.Log(ammoCount);
-        if (Input.GetMouseButton(0) && canShoot && ammoCount > 0)
+        if (playerMovement.isActivePlayer)
         {
-            animator.SetTrigger("isShooting");
-            Shoot();
-            shootingparticle.Play();
-            recoilCam.ApplyRecoil();
-            canShoot = false;
-            StartCoroutine(ShootCoolDown());
+            crosshair.SetActive(true);
+            //DebugFPS();
+            //Debug.Log(ammoCount);
+            if (Input.GetMouseButton(0) && canShoot && ammoCount > 0)
+            {
+                animator.SetTrigger("isShooting");
+                Shoot();
+                shootingparticle.Play();
+                recoilCam.ApplyRecoil();
+                canShoot = false;
+                StartCoroutine(ShootCoolDown());
+            }
+            if (ammoCount <= 0 && !isReloading)
+            {
+                Reload();
+            }
+            if (Input.GetKeyDown(KeyCode.R) && !isReloading && ammoCount < maxAmmo)
+            {
+                Reload();
+            }
         }
-        if(ammoCount <= 0 && !isReloading)
+        else
         {
-            Reload();
-        }
-        if (Input.GetKeyDown(KeyCode.R) && !isReloading && ammoCount < maxAmmo)
-        {
-            Reload();
+            crosshair.SetActive(false);
         }
     }
 
