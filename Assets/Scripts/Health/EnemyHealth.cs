@@ -4,15 +4,16 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int health = 3;
     public GameObject ragdoll;
+    private bool isDead = false;
 
     public void TakeDamage(int hit)
     {
         health -= hit;
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
+            isDead = true;
             SpawnRagdoll();
             Destroy(gameObject);
-            health += 10;
         }
     }
 

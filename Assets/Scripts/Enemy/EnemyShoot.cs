@@ -36,7 +36,11 @@ public class EnemyShoot : MonoBehaviour
     void Update()
     {
         //Debug.Log(agent.remainingDistance);
-        direction = (shootPositionPlayerNeck.transform.position - bulletspawnpoint.transform.position).normalized; 
+        if(shootPositionPlayerNeck != null) 
+        {
+            direction = (shootPositionPlayerNeck.transform.position - bulletspawnpoint.transform.position).normalized; 
+        }
+        
         bodyRotation = new Vector3(direction.x,0,direction.z);
         gameObject.transform.rotation =  Quaternion.LookRotation(bodyRotation); 
         
@@ -88,7 +92,7 @@ public class EnemyShoot : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
+        if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f && shooter != null)
         {
             spine.transform.LookAt(shooter.transform);
             spine.transform.rotation = Quaternion.Euler(

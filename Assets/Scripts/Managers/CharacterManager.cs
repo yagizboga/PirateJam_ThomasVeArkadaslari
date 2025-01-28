@@ -13,6 +13,10 @@ public class CharacterManager : MonoBehaviour
     private PlayerMovement coalPlayerMovement;
     private PlayerMovement shooterPlayerMovement;
 
+    private PlayerHealth driverPlayerHealth;
+    private PlayerHealth coalPlayerHealth;
+    private PlayerHealth shooterPlayerHealth;
+
     private CoalPlayer coalPlayerScript;
 
     [SerializeField] private GameObject transitionCAM; 
@@ -23,6 +27,8 @@ public class CharacterManager : MonoBehaviour
 
     [SerializeField] private float XZsmallOffset = 0.5f;
     [SerializeField] private float YsmallOffset = 0.6f;
+
+    private bool isDead = false;
     
 
     private void Start()
@@ -35,6 +41,10 @@ public class CharacterManager : MonoBehaviour
         coalPlayerMovement = coalPlayerObj.GetComponent<PlayerMovement>();
         shooterPlayerMovement = shooterPlayerObj.GetComponent<PlayerMovement>();
 
+        driverPlayerHealth = driverPlayerObj.GetComponent<PlayerHealth>();
+        coalPlayerHealth = coalPlayerObj.GetComponent<PlayerHealth>();
+        shooterPlayerHealth = shooterPlayerObj.GetComponent<PlayerHealth>();
+
         coalPlayerScript = coalPlayerObj.GetComponent<CoalPlayer>();
 
         transitionCAM.SetActive(false); 
@@ -46,17 +56,21 @@ public class CharacterManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && activePlayer != driverPlayerObj && !isInTransition)
+        IsDeadCheck();
+        if (!isDead)
         {
-            StartCoroutine(ChangePlayer(driverPlayerObj, driverPlayerMovement));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && activePlayer != coalPlayerObj && !isInTransition)
-        {
-            StartCoroutine(ChangePlayer(coalPlayerObj, coalPlayerMovement));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && activePlayer != shooterPlayerObj && !isInTransition)
-        {
-            StartCoroutine(ChangePlayer(shooterPlayerObj, shooterPlayerMovement));
+            if (Input.GetKeyDown(KeyCode.Alpha1) && activePlayer != driverPlayerObj && !isInTransition)
+            {
+                StartCoroutine(ChangePlayer(driverPlayerObj, driverPlayerMovement));
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && activePlayer != coalPlayerObj && !isInTransition)
+            {
+                StartCoroutine(ChangePlayer(coalPlayerObj, coalPlayerMovement));
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && activePlayer != shooterPlayerObj && !isInTransition)
+            {
+                StartCoroutine(ChangePlayer(shooterPlayerObj, shooterPlayerMovement));
+            }
         }
     }
 
@@ -138,6 +152,14 @@ public class CharacterManager : MonoBehaviour
             Vector3 currentPosition = transitionCAM.transform.position;
             Vector3 targetPosition = new Vector3(activePlayer.transform.position.x, activePlayer.transform.position.y + cameraOffsetFromHeadUp, activePlayer.transform.position.z);
             transitionCAM.transform.position = targetPosition;
+        }
+    }
+
+    private void IsDeadCheck()
+    {
+        if (driverPlayerHealth.GetIsDead() || coalPlayerHealth.GetIsDead() || shooterPlayerHealth.GetIsDead())
+        {
+            isDead = true;
         }
     }
 }

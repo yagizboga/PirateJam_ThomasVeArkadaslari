@@ -2110,8 +2110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df8d6f285c8f8244af01c339edeb546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  ragdoll: {fileID: 4438674168195566587, guid: 5a7fd7c0743341d4fac743b0029dfd25, type: 3}
+  health: 10
+  ragdollActive: {fileID: 4438674168195566587, guid: 5a7fd7c0743341d4fac743b0029dfd25, type: 3}
+  ragdollDeactive: {fileID: 4438674168195566587, guid: 82451db2258a3c34892fd96d09592d01, type: 3}
 --- !u!1 &2433939450347265335
 GameObject:
   m_ObjectHideFlags: 0

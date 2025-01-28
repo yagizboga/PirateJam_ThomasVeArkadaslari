@@ -1926,6 +1926,7 @@ GameObject:
   - component: {fileID: 8672205192915793790}
   - component: {fileID: 4302779893560957313}
   - component: {fileID: 2913506102030153961}
+  - component: {fileID: 8371654827023704197}
   m_Layer: 0
   m_Name: PlayerDriver
   m_TagString: DriverPlayer
@@ -2056,6 +2057,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hammer: {fileID: 4323720932082633740}
+--- !u!114 &8371654827023704197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835103290831480574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df8d6f285c8f8244af01c339edeb546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragdollActive: {fileID: 3673590433910557535, guid: 293c9149a648276469e7143426234773, type: 3}
+  ragdollDeactive: {fileID: 3673590433910557535, guid: 319b3f02ac6002a4ca806a9d91ad2a37, type: 3}
 --- !u!1 &6838389218900526061
 GameObject:
   m_ObjectHideFlags: 0
