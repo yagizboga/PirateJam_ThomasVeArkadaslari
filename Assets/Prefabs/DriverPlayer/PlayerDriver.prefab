@@ -1927,6 +1927,7 @@ GameObject:
   - component: {fileID: 4302779893560957313}
   - component: {fileID: 2913506102030153961}
   - component: {fileID: 8371654827023704197}
+  - component: {fileID: 4401575111547806298}
   m_Layer: 0
   m_Name: PlayerDriver
   m_TagString: DriverPlayer
@@ -2036,7 +2037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c475c408e899c14c951280e44fc0d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivePlayer: 0
+  isActivePlayer: 1
   animator: {fileID: 5941601983345605088}
   main_camera: {fileID: 7403969255520828277}
   orientation: {fileID: 8027394917147038672}
@@ -2071,6 +2072,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ragdollActive: {fileID: 3673590433910557535, guid: 293c9149a648276469e7143426234773, type: 3}
   ragdollDeactive: {fileID: 3673590433910557535, guid: 319b3f02ac6002a4ca806a9d91ad2a37, type: 3}
+--- !u!114 &4401575111547806298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835103290831480574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b97d48f3231814ba5b311191fd43a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 2
+  sphereRadius: 0.1
+  playerCamera: {fileID: 579509371770959379}
+  highlightMaterial: {fileID: 2100000, guid: e37f5da838acd3c4a8207f8c4635f194, type: 2}
 --- !u!1 &6838389218900526061
 GameObject:
   m_ObjectHideFlags: 0

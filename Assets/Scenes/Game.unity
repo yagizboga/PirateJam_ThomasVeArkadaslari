@@ -224,6 +224,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4302779893560957313, guid: 8fccf33668ce94243be88b1e84b360e0, type: 3}
+      propertyPath: isActivePlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6835103290831480574, guid: 8fccf33668ce94243be88b1e84b360e0, type: 3}
       propertyPath: m_Name
       value: PlayerDriver
@@ -881,7 +885,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDistance: 3
-  playerCamera: {fileID: 0}
+  sphereRadius: 0.5
+  playerCamera: {fileID: 2057770443}
+  highlightMaterial: {fileID: 2100000, guid: e37f5da838acd3c4a8207f8c4635f194, type: 2}
 --- !u!1 &1388401959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1157,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028325593}
   m_CullTransparentMesh: 1
+--- !u!20 &2057770443 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 579509371770959379, guid: 8fccf33668ce94243be88b1e84b360e0, type: 3}
+  m_PrefabInstance: {fileID: 353233009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1777970509742243559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1201,6 +1212,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5088533055677333160, guid: 4699e183efe717c49a4f77746c97c982, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108344752596464678, guid: 4699e183efe717c49a4f77746c97c982, type: 3}
+      propertyPath: isActivePlayer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1256,6 +1271,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2803068771639232258, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803068771639232258, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803068771639232258, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4125768402927046496, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
       propertyPath: m_Name
       value: Brake
@@ -1294,7 +1321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7519668873980470797, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
       propertyPath: m_TagString
-      value: Gas
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8573378537056743015, guid: 69d1e3fc453da4a4399c15158562ed16, type: 3}
       propertyPath: m_TagString

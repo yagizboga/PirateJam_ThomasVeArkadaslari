@@ -2067,7 +2067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c475c408e899c14c951280e44fc0d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivePlayer: 1
+  isActivePlayer: 0
   animator: {fileID: 7458488014578865287}
   main_camera: {fileID: 8121452950832303034}
   orientation: {fileID: 1968549586855924202}
@@ -2110,7 +2110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df8d6f285c8f8244af01c339edeb546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
   ragdollActive: {fileID: 4438674168195566587, guid: 5a7fd7c0743341d4fac743b0029dfd25, type: 3}
   ragdollDeactive: {fileID: 4438674168195566587, guid: 82451db2258a3c34892fd96d09592d01, type: 3}
 --- !u!1 &2433939450347265335
