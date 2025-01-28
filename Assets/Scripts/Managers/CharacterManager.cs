@@ -2,23 +2,27 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
-    private GameObject driverPlayer;    // 1st
-    private GameObject coalPlayer;      // 2nd
-    private GameObject shooterPlayer;   // 3rd
+    private GameObject driverPlayerObj;    // 1st
+    private GameObject coalPlayerObj;      // 2nd
+    private GameObject shooterPlayerObj;   // 3rd
 
     private PlayerMovement driverPlayerMovement;
     private PlayerMovement coalPlayerMovement;
     private PlayerMovement shooterPlayerMovement;
 
+    private CoalPlayer coalPlayerScript;
+
     private void Start()
     {
-        driverPlayer = GameObject.FindGameObjectWithTag("DriverPlayer");
-        coalPlayer = GameObject.FindGameObjectWithTag("CoalPlayer");
-        shooterPlayer = GameObject.FindGameObjectWithTag("shooter");
+        driverPlayerObj = GameObject.FindGameObjectWithTag("DriverPlayer");
+        coalPlayerObj = GameObject.FindGameObjectWithTag("CoalPlayer");
+        shooterPlayerObj = GameObject.FindGameObjectWithTag("shooter");
 
-        driverPlayerMovement = driverPlayer.GetComponent<PlayerMovement>();
-        coalPlayerMovement = coalPlayer.GetComponent<PlayerMovement>();
-        shooterPlayerMovement = shooterPlayer.GetComponent<PlayerMovement>();
+        driverPlayerMovement = driverPlayerObj.GetComponent<PlayerMovement>();
+        coalPlayerMovement = coalPlayerObj.GetComponent<PlayerMovement>();
+        shooterPlayerMovement = shooterPlayerObj.GetComponent<PlayerMovement>();
+
+        coalPlayerScript = coalPlayerObj.GetComponent<CoalPlayer>();
     }
 
     private void Update()
@@ -44,6 +48,8 @@ public class CharacterManager : MonoBehaviour
                 driverPlayerMovement.SetIsActivePlayer(false);
                 coalPlayerMovement.SetIsActivePlayer(true);
                 shooterPlayerMovement.SetIsActivePlayer(false);
+
+                coalPlayerScript.SetActiveShovel();
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))

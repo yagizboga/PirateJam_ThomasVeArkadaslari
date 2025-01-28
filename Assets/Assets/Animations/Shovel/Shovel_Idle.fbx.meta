@@ -56,13 +56,6 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: SetAttackShovel
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
         functionName: SetCanDigTrue
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -71,13 +64,6 @@ ModelImporter:
         messageOptions: 0
       - time: 0
         functionName: SetCoalDeactive
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.035196695
-        functionName: SetAttackShovel
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

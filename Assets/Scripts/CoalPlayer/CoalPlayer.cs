@@ -13,6 +13,7 @@ public class CoalPlayer : MonoBehaviour
 
     public GameObject attackShovel;
     public GameObject diggingShovel;
+    public GameObject afkShovel;
     public GameObject coal;
 
     private bool isInOven = false;
@@ -21,6 +22,9 @@ public class CoalPlayer : MonoBehaviour
     private CoalEconomy coalEconomy;
 
     private PlayerMovement playerMovement;
+
+    public GameObject cigaretteActive;
+    public GameObject cigaretteAfk;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -28,13 +32,21 @@ public class CoalPlayer : MonoBehaviour
         coalEconomy = GameObject.FindGameObjectWithTag("Oven").GetComponent<CoalEconomy>();
         attackShovel.SetActive(true);
         diggingShovel.SetActive(false);
+        afkShovel.SetActive(false);
         coal.SetActive(false);
         animator.SetBool("isHoldingShovel", true);
+
+        cigaretteActive.SetActive(false);
+        cigaretteAfk.SetActive(true);
     }
     void Update()
     {
         if (playerMovement.isActivePlayer)
         {
+            afkShovel.SetActive(false);
+            cigaretteActive.SetActive(true);
+            cigaretteAfk.SetActive(false);
+
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 if (!isAttacking && isHoldingShovel && !isDigging)
@@ -80,6 +92,15 @@ public class CoalPlayer : MonoBehaviour
                     coal.SetActive(false);
                 }
             }
+        }
+        else
+        {
+            afkShovel.SetActive(true);
+            diggingShovel.SetActive(false);
+            attackShovel.SetActive(false);
+
+            cigaretteActive.SetActive(false);
+            cigaretteAfk.SetActive(true);
         }
     }
 
@@ -169,5 +190,11 @@ public class CoalPlayer : MonoBehaviour
     public void SetInCoalBox(bool inCoalBox)
     {
         isInCoalBox = inCoalBox;
+    }
+
+    public void SetActiveShovel()
+    {
+        afkShovel.SetActive(false);
+        attackShovel.SetActive(true);
     }
 }   

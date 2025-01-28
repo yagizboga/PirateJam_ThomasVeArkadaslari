@@ -19,6 +19,7 @@ public class ShooterShoot : MonoBehaviour
 
     public GameObject magHand;
     public GameObject hand;
+    public GameObject afkRifle;
     public float rotationSpeed = 6f;
     private Transform headTransform;
 
@@ -40,6 +41,7 @@ public class ShooterShoot : MonoBehaviour
         if (playerMovement.isActivePlayer)
         {
             crosshair.SetActive(true);
+            afkRifle.SetActive(false);
             //DebugFPS();
             //Debug.Log(ammoCount);
             if (Input.GetMouseButton(0) && canShoot && ammoCount > 0)
@@ -63,6 +65,7 @@ public class ShooterShoot : MonoBehaviour
         else
         {
             crosshair.SetActive(false);
+            afkRifle.SetActive(true);
         }
     }
 
