@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
 
     private EnemyShoot enemyShoot;
 
+    private bool isRigidBodyRemoved = false;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -24,12 +26,13 @@ public class EnemyMovement : MonoBehaviour
         coalPlayerTransform = GameObject.FindGameObjectWithTag("CoalPlayer").transform;
         driverPlayerTransform = GameObject.FindGameObjectWithTag("DriverPlayer").transform;
         enemyShoot = GetComponent<EnemyShoot>();
+        agent.enabled = false;
     }
 
     void FixedUpdate()
     {
         Transform target = DetermineTarget();
-        if (target != null)
+        if (target != null && agent != null)
         {
             agent.SetDestination(target.position);
             enemyShoot.SetTarget(target.gameObject);
@@ -38,7 +41,11 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("target is null!");
         }
-        animator.SetFloat("speed", agent.velocity.magnitude);
+
+        if(agent != null)
+        {
+            animator.SetFloat("speed", agent.velocity.magnitude);
+        }
     }
 
     private Transform DetermineTarget()
@@ -93,5 +100,22 @@ public class EnemyMovement : MonoBehaviour
         }
 
         return closestTarget;
+    }
+    public void ActivateEnemy()
+    {
+        if (!isRigidBodyRemoved)
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                Destroy(rb);
+                isRigidBodyRemoved = true;
+            }
+        }
+        
+        if(agent.enabled == false)
+        {
+            agent.enabled = true;
+        }
     }
 }

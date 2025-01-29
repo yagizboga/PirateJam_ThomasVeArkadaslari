@@ -58,7 +58,7 @@ public class EnemyShoot : MonoBehaviour
 
     void Update()
     {
-        if(currentTarget.CompareTag("shooter"))
+        if(currentTarget.CompareTag("shooter") && agent != null)
         {
             if (shooterNeck != null)
             {
@@ -86,7 +86,7 @@ public class EnemyShoot : MonoBehaviour
                 animator.SetBool("isShooting", false);
             }
         }
-        else if(currentTarget.CompareTag("DriverPlayer"))
+        else if(currentTarget.CompareTag("DriverPlayer") && agent != null)
         {
             if (driverPlayerNeck != null)
             {
@@ -114,7 +114,7 @@ public class EnemyShoot : MonoBehaviour
                 animator.SetBool("isShooting", false);
             }
         }
-        else if(currentTarget.CompareTag("CoalPlayer"))
+        else if(currentTarget.CompareTag("CoalPlayer") && agent != null)
         {
             if (coalPlayerNeck != null)
             {
@@ -184,7 +184,7 @@ public class EnemyShoot : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f && currentTarget != null)
+        if (agent != null && agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f && currentTarget != null)
         {
             enemySpine.transform.LookAt(currentTarget.transform);
             enemySpine.transform.rotation = Quaternion.Euler(
