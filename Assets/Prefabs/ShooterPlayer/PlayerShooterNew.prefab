@@ -2092,6 +2092,7 @@ MonoBehaviour:
   shootingparticle: {fileID: 8924073206292048085}
   bloodEffectPrefab: {fileID: 1882245233095420313, guid: f2ee54b501210dc4e96a90a983e75720, type: 3}
   recoilCam: {fileID: 1456921953343327079}
+  cameraRifle: {fileID: 993881719606841792}
   magHand: {fileID: 8702706893305059502}
   hand: {fileID: 4219159313215976444}
   afkRifle: {fileID: 5743743597513241970}

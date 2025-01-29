@@ -17,6 +17,7 @@ public class ShooterShoot : MonoBehaviour
     private int maxAmmo = 25;
     private bool isReloading = false;
 
+    public GameObject cameraRifle;
     public GameObject magHand;
     public GameObject hand;
     public GameObject afkRifle;
@@ -47,7 +48,7 @@ public class ShooterShoot : MonoBehaviour
             afkRifle.SetActive(false);
             //DebugFPS();
             //Debug.Log(ammoCount);
-            if (Input.GetMouseButton(0) && canShoot && ammoCount > 0)
+            if (Input.GetMouseButton(0) && canShoot && ammoCount > 0 && playerMovement.GetIsEmoting() == false)
             {
                 animator.SetTrigger("isShooting");
                 Shoot();
@@ -60,16 +61,32 @@ public class ShooterShoot : MonoBehaviour
             {
                 Reload();
             }
-            if (Input.GetKeyDown(KeyCode.R) && !isReloading && ammoCount < maxAmmo)
+            if (Input.GetKeyDown(KeyCode.R) && !isReloading && ammoCount < maxAmmo && playerMovement.GetIsEmoting() == false)
             {
                 Reload();
             }
         }
-        else
+        else if(playerMovement.isActivePlayer == false)
         {
             crosshair.SetActive(false);
             afkRifle.SetActive(true);
             ShadowEnable(true);
+        }
+    }
+    private void LateUpdate()
+    {
+        if (playerMovement.GetIsEmoting())
+        {
+            if(cameraRifle.activeSelf)
+                cameraRifle.SetActive(false);
+            if(afkRifle.activeSelf == false)
+                afkRifle.SetActive(true);
+        }
+        else
+        {
+            if(cameraRifle.activeSelf == false)
+                cameraRifle.SetActive(true);
+            
         }
     }
 
