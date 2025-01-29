@@ -9,7 +9,9 @@ public class EnemyMovement : MonoBehaviour
     private Transform driverPlayerTransform;
 
     [SerializeField] Animator animator;
-    [SerializeField] private float yTolerance = 1.0f; 
+    [SerializeField] private float yTolerance = 1.0f;
+
+    private EnemyShoot enemyShoot;
 
     void Awake()
     {
@@ -21,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
         shooterTransform = GameObject.FindGameObjectWithTag("shooter").transform;
         coalPlayerTransform = GameObject.FindGameObjectWithTag("CoalPlayer").transform;
         driverPlayerTransform = GameObject.FindGameObjectWithTag("DriverPlayer").transform;
+        enemyShoot = GetComponent<EnemyShoot>();
     }
 
     void FixedUpdate()
@@ -29,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
         if (target != null)
         {
             agent.SetDestination(target.position);
+            enemyShoot.SetTarget(target.gameObject);
         }
         else
         {
