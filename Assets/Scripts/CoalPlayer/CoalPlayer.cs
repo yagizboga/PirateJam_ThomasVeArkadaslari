@@ -25,6 +25,8 @@ public class CoalPlayer : MonoBehaviour
 
     public GameObject cigaretteActive;
     public GameObject cigaretteAfk;
+
+    public ShovelAttack shovelAttack;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -222,5 +224,15 @@ public class CoalPlayer : MonoBehaviour
             diggingShovel.SetActive(false);
             attackShovel.SetActive(true);
         }
+    }
+
+    public void SetCanShovelDamageFalse()
+    {
+        shovelAttack.SetCanShovelDamageFalse();
+    }
+
+    public void SetCanShovelDamageTrue()
+    {
+        shovelAttack.SetCanShovelDamageTrue();
     }
 }   

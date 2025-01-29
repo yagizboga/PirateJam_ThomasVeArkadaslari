@@ -171,6 +171,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCoal
       objectReference: {fileID: 0}
+    - target: {fileID: 3254853222256014736, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666640746028666596, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
+      propertyPath: m_Size.x
+      value: 3.7119548
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666640746028666596, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
+      propertyPath: m_Center.x
+      value: 0.9174632
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666640746028666596, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
+      propertyPath: m_Center.y
+      value: 0.0000015783683
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666640746028666596, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
+      propertyPath: m_Center.z
+      value: 0.00005118247
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
