@@ -9,60 +9,64 @@ public class ZeplinMovement : MonoBehaviour
     public Transform spawnFloor;
     public GameObject enemy;
 
-    private bool isMoving = false;
-
-    private float spawnCoolDown = 3f;
+    private float spawnCoolDown = 2f;
+    private float moveDuration = 4f; 
 
     void Start()
+    {
+        CallZeplin(); // for test
+    }
+
+    public void CallZeplin()
     {
         StartCoroutine(MoveToDeploy());
     }
 
-    private IEnumerator MoveToDeploy()
+    IEnumerator MoveToDeploy()
     {
-        isMoving = true;
-        Vector3 targetPosition = new Vector3(deployPosition.position.x, transform.position.y, deployPosition.position.z);
+        yield return StartCoroutine(MoveToPosition(deployPosition.position, moveDuration));
 
-        while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
-        {
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
-            yield return null;
-        }
-
-        transform.position = targetPosition;
-        isMoving = false;
-
+        yield return new WaitForSeconds(2f);
         StartCoroutine(EnemySpawn());
     }
 
-    private IEnumerator EnemySpawn()
+    IEnumerator EnemySpawn()
     {
-        float spawnDuration = Random.Range(10f, 15f); // chooses a random spawn duration
+        float spawnDuration = Random.Range(10f, 20f);
         float elapsedTime = 0f;
 
         while (elapsedTime < spawnDuration)
         {
             Transform spawnPoint = Random.Range(0, 2) == 0 ? spawnRoof : spawnFloor;
             Instantiate(enemy, spawnPoint.position, Quaternion.identity);
-            yield return new WaitForSeconds(spawnCoolDown); // 3s
+            yield return new WaitForSeconds(spawnCoolDown);
             elapsedTime += spawnCoolDown;
         }
 
         StartCoroutine(MoveToFlee());
     }
 
-    private IEnumerator MoveToFlee()
+    IEnumerator MoveToFlee()
     {
-        isMoving = true;
-        Vector3 targetPosition = new Vector3(fleePosition.position.x, transform.position.y, fleePosition.position.z);
+        yield return StartCoroutine(MoveToPosition(fleePosition.position, moveDuration)); 
+    }
 
-        while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+    IEnumerator MoveToPosition(Vector3 target, float duration)
+    {
+        Vector3 startPos = transform.position;
+        target = new Vector3(target.x, startPos.y, target.z); 
+
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime);
+            float t = elapsedTime / duration;
+            t = Mathf.SmoothStep(0, 1, t); 
+
+            transform.position = Vector3.Lerp(startPos, target, t);
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        transform.position = targetPosition;
-        isMoving = false;
+        transform.position = target;
     }
 }
