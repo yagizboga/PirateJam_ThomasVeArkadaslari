@@ -28,12 +28,16 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= hit;
         lastDamageTime = Time.time;
+
         if (gameObject.CompareTag("shooter"))
             Debug.Log("shooter health: " + health);
+
         if (gameObject.CompareTag("DriverPlayer"))
             Debug.Log("DriverPlayer health: " + health);
+
         if (gameObject.CompareTag("CoalPlayer"))
             Debug.Log("CoalPlayer health: " + health);
+
         if (health <= 0 && !isDead)
         {
             isDead = true;

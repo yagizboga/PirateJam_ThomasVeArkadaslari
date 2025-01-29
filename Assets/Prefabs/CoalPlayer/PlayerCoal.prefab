@@ -1208,7 +1208,7 @@ GameObject:
   - component: {fileID: 7977600327008513136}
   m_Layer: 19
   m_Name: mixamorig:Neck
-  m_TagString: Untagged
+  m_TagString: CoalPlayerNeck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

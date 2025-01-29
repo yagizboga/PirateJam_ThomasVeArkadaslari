@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 8340119917624730665}
   m_Layer: 19
   m_Name: mixamorig:Neck
-  m_TagString: Untagged
+  m_TagString: DriverNeck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9789,10 +9789,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097357935ff85194482c0f791123a43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpine: {fileID: 7786771148157843242}
   bulletspawnpoint: {fileID: 6260757063239847444}
   animator: {fileID: 4634626062855382716}
   shootCooldown: 0.75
-  spine: {fileID: 7786771148157843242}
   angleFixOffset: -40
   shootParticle: {fileID: 9211879754773953390}
 --- !u!195 &8102076826372365577

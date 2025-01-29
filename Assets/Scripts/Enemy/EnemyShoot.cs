@@ -8,18 +8,16 @@ public class EnemyShoot : MonoBehaviour
 {
     private NavMeshAgent agent;
     private GameObject currentTarget;
+    [SerializeField] private GameObject enemySpine;
 
-    [SerializeField] private GameObject shooter;
-    [SerializeField] private GameObject shooterSpine;
-    [SerializeField] private GameObject shooterNeck;
+    private GameObject shooter;
+    private GameObject shooterNeck;
 
-    [SerializeField] private GameObject driverPlayer;
-    [SerializeField] private GameObject driverPlayerSpine;
-    [SerializeField] private GameObject driverPlayerNeck;
+    private GameObject driverPlayer;
+    private GameObject driverPlayerNeck;
 
-    [SerializeField] private GameObject coalPlayer;
-    [SerializeField] private GameObject coalPlayerSpine;
-    [SerializeField] private GameObject coalPlayerNeck;
+    private GameObject coalPlayer;
+    private GameObject coalPlayerNeck;
 
     private PlayerHealth shooterHealth;
     private PlayerHealth driverPlayerHealth;
@@ -45,9 +43,13 @@ public class EnemyShoot : MonoBehaviour
     }
     void Start()
     {
-        shooter = GameObject.FindGameObjectWithTag("Shooter");
-        driverPlayer = GameObject.FindGameObjectWithTag("Driver");
-        coalPlayer = GameObject.FindGameObjectWithTag("Coal");
+        shooter = GameObject.FindGameObjectWithTag("shooter");
+        driverPlayer = GameObject.FindGameObjectWithTag("DriverPlayer");
+        coalPlayer = GameObject.FindGameObjectWithTag("CoalPlayer");
+
+        shooterNeck = GameObject.FindGameObjectWithTag("ShooterNeck");
+        driverPlayerNeck = GameObject.FindGameObjectWithTag("DriverNeck");
+        coalPlayerNeck = GameObject.FindGameObjectWithTag("CoalPlayerNeck");
 
         shooterHealth = shooter.GetComponent<PlayerHealth>();
         driverPlayerHealth = driverPlayer.GetComponent<PlayerHealth>();
@@ -56,15 +58,16 @@ public class EnemyShoot : MonoBehaviour
 
     void Update()
     {
-        if(currentTarget == shooter)
+        if(currentTarget.CompareTag("shooter"))
         {
             if (shooterNeck != null)
             {
                 direction = (shooterNeck.transform.position - bulletspawnpoint.transform.position).normalized;
+                bodyRotation = new Vector3(direction.x, 0, direction.z);
+                gameObject.transform.rotation = Quaternion.LookRotation(bodyRotation);
             }
 
-            bodyRotation = new Vector3(direction.x, 0, direction.z);
-            gameObject.transform.rotation = Quaternion.LookRotation(bodyRotation);
+            
 
             if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
             {
@@ -83,15 +86,16 @@ public class EnemyShoot : MonoBehaviour
                 animator.SetBool("isShooting", false);
             }
         }
-        else if(currentTarget == driverPlayer)
+        else if(currentTarget.CompareTag("DriverPlayer"))
         {
             if (driverPlayerNeck != null)
             {
                 direction = (driverPlayerNeck.transform.position - bulletspawnpoint.transform.position).normalized;
+                bodyRotation = new Vector3(direction.x, 0, direction.z);
+                gameObject.transform.rotation = Quaternion.LookRotation(bodyRotation);
             }
 
-            bodyRotation = new Vector3(direction.x, 0, direction.z);
-            gameObject.transform.rotation = Quaternion.LookRotation(bodyRotation);
+            
 
             if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
             {
@@ -110,15 +114,16 @@ public class EnemyShoot : MonoBehaviour
                 animator.SetBool("isShooting", false);
             }
         }
-        else if(currentTarget == coalPlayer)
+        else if(currentTarget.CompareTag("CoalPlayer"))
         {
             if (coalPlayerNeck != null)
             {
                 direction = (coalPlayerNeck.transform.position - bulletspawnpoint.transform.position).normalized;
+                bodyRotation = new Vector3(direction.x, 0, direction.z);
+                gameObject.transform.rotation = Quaternion.LookRotation(bodyRotation);
             }
 
-            bodyRotation = new Vector3(direction.x, 0, direction.z);
-            gameObject.transform.rotation = Quaternion.LookRotation(bodyRotation);
+            
 
             if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
             {
@@ -179,36 +184,14 @@ public class EnemyShoot : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
+        if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f && currentTarget != null)
         {
-            if(currentTarget == shooter && shooter != null)
-            {
-                shooterSpine.transform.LookAt(shooter.transform);
-                shooterSpine.transform.rotation = Quaternion.Euler(
-                shooterSpine.transform.eulerAngles.x,
-                shooterSpine.transform.eulerAngles.y - angleFixOffset,
-                shooterSpine.transform.eulerAngles.z
-                );
-            }
-            else if(currentTarget == driverPlayer && driverPlayer != null)
-            {
-                driverPlayerSpine.transform.LookAt(shooter.transform);
-                driverPlayerSpine.transform.rotation = Quaternion.Euler(
-                driverPlayerSpine.transform.eulerAngles.x,
-                driverPlayerSpine.transform.eulerAngles.y - angleFixOffset,
-                driverPlayerSpine.transform.eulerAngles.z
-                );
-            }
-            else if(currentTarget == coalPlayer && coalPlayer != null)
-            {
-                coalPlayerSpine.transform.LookAt(shooter.transform);
-                coalPlayerSpine.transform.rotation = Quaternion.Euler(
-                coalPlayerSpine.transform.eulerAngles.x,
-                coalPlayerSpine.transform.eulerAngles.y - angleFixOffset,
-                coalPlayerSpine.transform.eulerAngles.z
-                );
-            }
-            
+            enemySpine.transform.LookAt(currentTarget.transform);
+            enemySpine.transform.rotation = Quaternion.Euler(
+            enemySpine.transform.eulerAngles.x,
+            enemySpine.transform.eulerAngles.y - angleFixOffset,
+            enemySpine.transform.eulerAngles.z
+            );
         }
 
     }
