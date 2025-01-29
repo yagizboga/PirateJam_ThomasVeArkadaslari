@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform driverPlayerTransform;
 
     [SerializeField] Animator animator;
-    [SerializeField] private float yTolerance = 1.0f;
+    //[SerializeField] private float yTolerance = 1.0f;
 
     private EnemyShoot enemyShoot;
 
