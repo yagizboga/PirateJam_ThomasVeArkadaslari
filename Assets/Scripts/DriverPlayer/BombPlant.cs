@@ -7,6 +7,7 @@ public class BombPlant : MonoBehaviour
     public GameObject bombObj;
     public GameObject bombHighlightObj;
     public ParticleSystem explodeParticle;
+    [SerializeField] GameObject deletedobject;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class BombPlant : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         explodeParticle.Play();
-        yield return new WaitForSeconds(0.15f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(deletedobject);
     }
 }
