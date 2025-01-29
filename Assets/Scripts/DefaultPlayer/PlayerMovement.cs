@@ -85,6 +85,10 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer();
             //RotatePlayer();
         }
+        else
+        {
+            animator.SetFloat("speed", 0f);
+        }
     }
 
     private void GroundCheck()

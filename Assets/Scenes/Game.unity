@@ -171,26 +171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCoal
       objectReference: {fileID: 0}
-    - target: {fileID: 3254853222256014736, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3666640746028666596, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
-      propertyPath: m_Size.x
-      value: 3.7119548
-      objectReference: {fileID: 0}
-    - target: {fileID: 3666640746028666596, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
-      propertyPath: m_Center.x
-      value: 0.9174632
-      objectReference: {fileID: 0}
-    - target: {fileID: 3666640746028666596, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
-      propertyPath: m_Center.y
-      value: 0.0000015783683
-      objectReference: {fileID: 0}
-    - target: {fileID: 3666640746028666596, guid: 9fa0f7606f0c13747a401c28935c66ea, type: 3}
-      propertyPath: m_Center.z
-      value: 0.00005118247
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -210,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2063451480424822265, guid: 8fccf33668ce94243be88b1e84b360e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.39
+      value: 4.093
       objectReference: {fileID: 0}
     - target: {fileID: 2063451480424822265, guid: 8fccf33668ce94243be88b1e84b360e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1163,7 +1143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5088533055677333160, guid: 4699e183efe717c49a4f77746c97c982, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -51.19
+      value: -15.46
       objectReference: {fileID: 0}
     - target: {fileID: 5088533055677333160, guid: 4699e183efe717c49a4f77746c97c982, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1277,11 +1257,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994505942855663636, guid: 61f89a4fa12d7e143af791c57975af9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.97
+      value: -68.23
       objectReference: {fileID: 0}
     - target: {fileID: 8994505942855663636, guid: 61f89a4fa12d7e143af791c57975af9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.81
+      value: 1.18
       objectReference: {fileID: 0}
     - target: {fileID: 8994505942855663636, guid: 61f89a4fa12d7e143af791c57975af9a, type: 3}
       propertyPath: m_LocalPosition.z

@@ -9776,6 +9776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4634626062855382716}
+  yTolerance: 1
 --- !u!114 &2299312066701894189
 MonoBehaviour:
   m_ObjectHideFlags: 0

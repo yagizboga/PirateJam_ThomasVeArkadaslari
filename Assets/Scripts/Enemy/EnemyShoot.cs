@@ -53,6 +53,7 @@ public class EnemyShoot : MonoBehaviour
                 canShoot = false;
                 Shoot();
                 StartCoroutine(ShootCoolDown());
+                //Debug.Log("shot");
             }
         }
         else
