@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
         Transform closestTarget = null;
         float closestDistance = float.MaxValue;
 
-        if (shooterTransform != null && Mathf.Abs(shooterTransform.position.y - enemyY) <= yTolerance)
+        /*if (shooterTransform != null && Mathf.Abs(shooterTransform.position.y - enemyY) <= yTolerance)
         {
             float shooterDistance = Vector3.Distance(transform.position, shooterTransform.position);
             float coalDistance = coalPlayerTransform != null ? Vector3.Distance(transform.position, coalPlayerTransform.position) : float.MaxValue;
@@ -58,7 +58,7 @@ public class EnemyMovement : MonoBehaviour
                 //Debug.Log("shooter y pos");
                 return shooterTransform;
             }
-        }
+        }*/
 
         if (coalPlayerTransform != null)
         {
