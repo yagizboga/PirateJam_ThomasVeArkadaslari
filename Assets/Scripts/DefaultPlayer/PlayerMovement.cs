@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private bool readyToJump = true;
 
     private bool onLadder = false;
+    private bool isEmoting = false;
 
     private void Start()
     {
@@ -45,7 +46,16 @@ public class PlayerMovement : MonoBehaviour
                 main_camera.SetActive(true);
             }
             GroundCheck();
-            GetInput();
+            if (!isEmoting)
+            {
+                GetInput();
+            }
+            else if (isEmoting)
+            {
+                verticalInput = 0;
+                horizontalInput = 0;
+            }
+            
         }
         else
         {
@@ -54,6 +64,15 @@ public class PlayerMovement : MonoBehaviour
                 main_camera.SetActive(false);
             }
             animator.SetBool("isActivePlayer", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Emote(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.T))
+        {
+            Emote(false);
         }
     }
 
@@ -65,6 +84,10 @@ public class PlayerMovement : MonoBehaviour
         {
             MovePlayer();
             //RotatePlayer();
+        }
+        else
+        {
+            animator.SetFloat("speed", 0f);
         }
     }
 
@@ -164,5 +187,16 @@ public class PlayerMovement : MonoBehaviour
     public void SetAnimatorActivePlayer(bool isactive)
     {
         animator.SetBool("isActivePlayer", isactive);
+    }
+
+    private void Emote(bool emote)
+    {
+        animator.SetBool("isEmoting", emote);
+        isEmoting = emote;
+    }
+
+    public bool GetIsEmoting()
+    {
+        return isEmoting;
     }
 }

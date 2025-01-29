@@ -7,19 +7,34 @@ using UnityEngine.AI;
 public class EnemyShoot : MonoBehaviour
 {
     private NavMeshAgent agent;
+    private GameObject currentTarget;
+    [SerializeField] private GameObject enemySpine;
+
     private GameObject shooter;
+    private GameObject shooterNeck;
+
+    private GameObject driverPlayer;
+    private GameObject driverPlayerNeck;
+
+    private GameObject coalPlayer;
+    private GameObject coalPlayerNeck;
+
+    private PlayerHealth shooterHealth;
+    private PlayerHealth driverPlayerHealth;
+    private PlayerHealth coalPlayerHealth;
+
+
     [SerializeField] GameObject bulletspawnpoint;
     [SerializeField] Animator animator;
-    private GameObject shootPositionPlayerNeck;
 
     public float shootCooldown = 0.75f;
     private Vector3 direction;
     private Vector3 bodyRotation;
     private bool canShoot = true;
-    public GameObject spine;
+
     public float angleFixOffset = -40f;
     public ParticleSystem shootParticle;
-    private PlayerHealth shooterHealth;
+
 
 
     void Awake()
@@ -29,36 +44,105 @@ public class EnemyShoot : MonoBehaviour
     void Start()
     {
         shooter = GameObject.FindGameObjectWithTag("shooter");
+        driverPlayer = GameObject.FindGameObjectWithTag("DriverPlayer");
+        coalPlayer = GameObject.FindGameObjectWithTag("CoalPlayer");
+
+        shooterNeck = GameObject.FindGameObjectWithTag("ShooterNeck");
+        driverPlayerNeck = GameObject.FindGameObjectWithTag("DriverNeck");
+        coalPlayerNeck = GameObject.FindGameObjectWithTag("CoalPlayerNeck");
+
         shooterHealth = shooter.GetComponent<PlayerHealth>();
-        shootPositionPlayerNeck = GameObject.FindGameObjectWithTag("PlayerTakeHitPosition");
+        driverPlayerHealth = driverPlayer.GetComponent<PlayerHealth>();
+        coalPlayerHealth = coalPlayer.GetComponent<PlayerHealth>();
     }
 
     void Update()
     {
-        //Debug.Log(agent.remainingDistance);
-        if(shootPositionPlayerNeck != null) 
+        if(currentTarget.CompareTag("shooter") && agent != null)
         {
-            direction = (shootPositionPlayerNeck.transform.position - bulletspawnpoint.transform.position).normalized; 
-        }
-        
-        bodyRotation = new Vector3(direction.x,0,direction.z);
-        gameObject.transform.rotation =  Quaternion.LookRotation(bodyRotation); 
-        
-        if(agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance +.1f)
-        {
-            animator.SetBool("isShooting",true);
-            if (canShoot)
+            if (shooterNeck != null)
             {
-                animator.SetTrigger("shoot");
-                canShoot = false;
-                Shoot();
-                StartCoroutine(ShootCoolDown());
+                direction = (shooterNeck.transform.position - bulletspawnpoint.transform.position).normalized;
+                bodyRotation = new Vector3(direction.x, 0, direction.z);
+                gameObject.transform.rotation = Quaternion.LookRotation(bodyRotation);
+            }
+
+            
+
+            if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
+            {
+                animator.SetBool("isShooting", true);
+                if (canShoot)
+                {
+                    animator.SetTrigger("shoot");
+                    canShoot = false;
+                    Shoot();
+                    StartCoroutine(ShootCoolDown());
+                    //Debug.Log("shot");
+                }
+            }
+            else
+            {
+                animator.SetBool("isShooting", false);
             }
         }
-        else
+        else if(currentTarget.CompareTag("DriverPlayer") && agent != null)
         {
-            animator.SetBool("isShooting",false);
+            if (driverPlayerNeck != null)
+            {
+                direction = (driverPlayerNeck.transform.position - bulletspawnpoint.transform.position).normalized;
+                bodyRotation = new Vector3(direction.x, 0, direction.z);
+                gameObject.transform.rotation = Quaternion.LookRotation(bodyRotation);
+            }
+
+            
+
+            if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
+            {
+                animator.SetBool("isShooting", true);
+                if (canShoot)
+                {
+                    animator.SetTrigger("shoot");
+                    canShoot = false;
+                    Shoot();
+                    StartCoroutine(ShootCoolDown());
+                    //Debug.Log("shot");
+                }
+            }
+            else
+            {
+                animator.SetBool("isShooting", false);
+            }
         }
+        else if(currentTarget.CompareTag("CoalPlayer") && agent != null)
+        {
+            if (coalPlayerNeck != null)
+            {
+                direction = (coalPlayerNeck.transform.position - bulletspawnpoint.transform.position).normalized;
+                bodyRotation = new Vector3(direction.x, 0, direction.z);
+                gameObject.transform.rotation = Quaternion.LookRotation(bodyRotation);
+            }
+
+            
+
+            if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
+            {
+                animator.SetBool("isShooting", true);
+                if (canShoot)
+                {
+                    animator.SetTrigger("shoot");
+                    canShoot = false;
+                    Shoot();
+                    StartCoroutine(ShootCoolDown());
+                    //Debug.Log("shot");
+                }
+            }
+            else
+            {
+                animator.SetBool("isShooting", false);
+            }
+        }
+        
     }
 
     public void Shoot()
@@ -72,12 +156,20 @@ public class EnemyShoot : MonoBehaviour
                 if (Random.value <= 0.5f) // %50 hit possibility
                 {
                     shooterHealth.TakeDamage(1);
-                    //Debug.Log("hit!" + ++hittest); 
-
                 }
-                else
+            }
+            else if (hit.collider.CompareTag("DriverPlayer"))
+            {
+                if (Random.value <= 0.5f) // %50 hit possibility
                 {
-                    //Debug.Log("miss!");
+                    driverPlayerHealth.TakeDamage(1);
+                }
+            }
+            else if (hit.collider.CompareTag("CoalPlayer"))
+            {
+                if (Random.value <= 0.5f) // %50 hit possibility
+                {
+                    coalPlayerHealth.TakeDamage(1);
                 }
             }
         }
@@ -92,13 +184,13 @@ public class EnemyShoot : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f && shooter != null)
+        if (agent != null && agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f && currentTarget != null)
         {
-            spine.transform.LookAt(shooter.transform);
-            spine.transform.rotation = Quaternion.Euler(
-            spine.transform.eulerAngles.x,
-            spine.transform.eulerAngles.y - angleFixOffset, 
-            spine.transform.eulerAngles.z
+            enemySpine.transform.LookAt(currentTarget.transform);
+            enemySpine.transform.rotation = Quaternion.Euler(
+            enemySpine.transform.eulerAngles.x,
+            enemySpine.transform.eulerAngles.y - angleFixOffset,
+            enemySpine.transform.eulerAngles.z
             );
         }
 
@@ -123,6 +215,8 @@ public class EnemyShoot : MonoBehaviour
             }
         }
     }
-
-
+    public void SetTarget(GameObject target)
+    {
+        currentTarget = target;
+    }
 }

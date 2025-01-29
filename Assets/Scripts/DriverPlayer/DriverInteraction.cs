@@ -8,40 +8,49 @@ public class DriverInteraction : MonoBehaviour
 
     private GameObject lastHighlightedObject; 
     private Material originalMaterial;       
-    public Material highlightMaterial;       
+    public Material highlightMaterial;
+    private PlayerMovement playerMovement;
+
+    private void Start()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
 
     void Update()
     {
-        RaycastHit hit;
-
-        if (Physics.SphereCast(playerCamera.transform.position, sphereRadius, playerCamera.transform.forward, out hit, interactionDistance))
+        if (playerMovement.isActivePlayer)
         {
-            GameObject hitObject = hit.collider.gameObject;
+            RaycastHit hit;
 
-            if (hitObject.CompareTag("Gas") || hitObject.CompareTag("Brake"))
+            if (Physics.SphereCast(playerCamera.transform.position, sphereRadius, playerCamera.transform.forward, out hit, interactionDistance))
             {
-                HighlightObject(hitObject); 
+                GameObject hitObject = hit.collider.gameObject;
 
-                if (Input.GetKeyDown(KeyCode.E))
+                if (hitObject.CompareTag("Gas") || hitObject.CompareTag("Brake"))
                 {
-                    if (hitObject.CompareTag("Gas"))
+                    HighlightObject(hitObject);
+
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        Debug.Log("Gas interacted!");
+                        if (hitObject.CompareTag("Gas"))
+                        {
+                            Debug.Log("Gas interacted!");
+                        }
+                        else if (hitObject.CompareTag("Brake"))
+                        {
+                            Debug.Log("Brake interacted!");
+                        }
                     }
-                    else if (hitObject.CompareTag("Brake"))
-                    {
-                        Debug.Log("Brake interacted!");
-                    }
+                }
+                else
+                {
+                    ClearHighlight();
                 }
             }
             else
             {
                 ClearHighlight();
             }
-        }
-        else
-        {
-            ClearHighlight();
         }
     }
 

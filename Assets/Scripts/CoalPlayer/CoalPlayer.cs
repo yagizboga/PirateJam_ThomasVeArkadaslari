@@ -25,6 +25,8 @@ public class CoalPlayer : MonoBehaviour
 
     public GameObject cigaretteActive;
     public GameObject cigaretteAfk;
+
+    public ShovelAttack shovelAttack;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -47,7 +49,7 @@ public class CoalPlayer : MonoBehaviour
             cigaretteActive.SetActive(true);
             cigaretteAfk.SetActive(false);
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && playerMovement.GetIsEmoting() == false)
             {
                 if (!isAttacking && isHoldingShovel && !isDigging)
                 {
@@ -63,7 +65,7 @@ public class CoalPlayer : MonoBehaviour
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (Input.GetKeyDown(KeyCode.Mouse1) && playerMovement.GetIsEmoting() == false)
             {
                 if (!isAttacking && isHoldingShovel && !isDigging && canDig)
                 {
@@ -80,8 +82,25 @@ public class CoalPlayer : MonoBehaviour
                     }
                 }
             }
-            if (Input.GetKeyUp(KeyCode.Mouse1))
+            if (Input.GetKeyUp(KeyCode.Mouse1) && playerMovement.GetIsEmoting() == false)
             {
+                if (isDigging)
+                {
+                    isDigging = false;
+                    animator.SetBool("isDigging", false);
+                }
+                if (!isReadyToCarry && coal.activeSelf == true)
+                {
+                    coal.SetActive(false);
+                }
+            }
+
+            if (playerMovement.GetIsEmoting() == true)
+            {
+                attackShovel.SetActive(false);
+                diggingShovel.SetActive(false);
+                afkShovel.SetActive(true);
+
                 if (isDigging)
                 {
                     isDigging = false;
@@ -196,5 +215,24 @@ public class CoalPlayer : MonoBehaviour
     {
         afkShovel.SetActive(false);
         attackShovel.SetActive(true);
+    }
+
+    public void SetDefaultShovel()
+    {
+        if (playerMovement.isActivePlayer)
+        {
+            diggingShovel.SetActive(false);
+            attackShovel.SetActive(true);
+        }
+    }
+
+    public void SetCanShovelDamageFalse()
+    {
+        shovelAttack.SetCanShovelDamageFalse();
+    }
+
+    public void SetCanShovelDamageTrue()
+    {
+        shovelAttack.SetCanShovelDamageTrue();
     }
 }   

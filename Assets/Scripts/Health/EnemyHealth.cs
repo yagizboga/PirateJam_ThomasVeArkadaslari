@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] int health = 3;
     public GameObject ragdoll;
     private bool isDead = false;
+    public ParticleSystem bloodParticleForShovel;
 
     public void TakeDamage(int hit)
     {
@@ -49,5 +50,10 @@ public class EnemyHealth : MonoBehaviour
                 CopyTransforms(sourceChild, destinationChild);
             }
         }
+    }
+
+    public void PlayShovelBlood()
+    {
+        bloodParticleForShovel.Play();
     }
 }

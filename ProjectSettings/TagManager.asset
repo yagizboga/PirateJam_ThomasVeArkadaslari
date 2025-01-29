@@ -17,6 +17,9 @@ TagManager:
   - Crosshair
   - Gas
   - Brake
+  - ShooterNeck
+  - DriverNeck
+  - CoalPlayerNeck
   layers:
   - Default
   - TransparentFX
