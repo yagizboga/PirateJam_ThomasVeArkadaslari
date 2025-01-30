@@ -8,7 +8,6 @@ public class ShooterUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI maxAmmoText;
 
     public Image healthBar;
-    private int healthAmount = 10;
 
     private PlayerHealth shooterHealth;
     

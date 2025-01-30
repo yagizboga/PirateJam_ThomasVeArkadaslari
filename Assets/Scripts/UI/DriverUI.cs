@@ -12,7 +12,6 @@ public class DriverUI : MonoBehaviour
     public GameObject repairSignDeactive;
 
     public Image healthBar;
-    private int healthAmount = 10;
 
     private PlayerHealth driverHealth;
 

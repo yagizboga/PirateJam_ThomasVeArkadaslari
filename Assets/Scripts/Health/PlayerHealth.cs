@@ -36,21 +36,21 @@ public class PlayerHealth : MonoBehaviour
         if (gameObject.CompareTag("shooter"))
         {
             shooterUI.UpdateHealth(health);
-            Debug.Log("shooter health: " + health);
+            //Debug.Log("shooter health: " + health);
         }
             
 
         if (gameObject.CompareTag("DriverPlayer"))
         {
             driverUI.UpdateHealth(health);
-            Debug.Log("DriverPlayer health: " + health);
+            //Debug.Log("DriverPlayer health: " + health);
         }
             
 
         if (gameObject.CompareTag("CoalPlayer"))
         {
             coalPlayerUI.UpdateHealth(health);
-            Debug.Log("CoalPlayer health: " + health);
+            //Debug.Log("CoalPlayer health: " + health);
         }
             
 

@@ -8,7 +8,6 @@ public class CoalPlayerUI : MonoBehaviour
     private CoalEconomy coalEconomy;
 
     public Image healthBar;
-    private int healthAmount = 10;
     private PlayerHealth coalPlayerHealth;
     private void Start()
     {
