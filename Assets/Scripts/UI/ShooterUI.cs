@@ -31,5 +31,6 @@ public class ShooterUI : MonoBehaviour
     {
         health = shooterHealth.GetCurrentHealth();
         healthBar.fillAmount = health/10;
+
     }
 }

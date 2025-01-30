@@ -11,6 +11,11 @@ public class DriverUI : MonoBehaviour
     public GameObject repairSignActive;
     public GameObject repairSignDeactive;
 
+    public Image healthBar;
+    private int healthAmount = 10;
+
+    private PlayerHealth driverHealth;
+
     private void Start()
     {
         stopSignActive.SetActive(false);
@@ -18,6 +23,8 @@ public class DriverUI : MonoBehaviour
 
         stopSignDeactive.SetActive(true);
         repairSignDeactive.SetActive(true);
+
+        driverHealth = GameObject.FindGameObjectWithTag("DriverPlayer").GetComponent<PlayerHealth>();
     }
 
 
@@ -37,7 +44,13 @@ public class DriverUI : MonoBehaviour
         repairSignActive.SetActive(set);
         repairSignDeactive.SetActive(!set);
     }
-    
-        
+
+    public void UpdateHealth(float health)
+    {
+        health = driverHealth.GetCurrentHealth();
+        healthBar.fillAmount = health / 10;
+    }
+
+
 
 }
