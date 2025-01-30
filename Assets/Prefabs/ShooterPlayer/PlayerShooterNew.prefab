@@ -2099,6 +2099,7 @@ MonoBehaviour:
   rotationSpeed: 6
   joints: {fileID: 4766219271022371811}
   meshes: {fileID: 7157696804001319860}
+  shooterUI: {fileID: 0}
 --- !u!114 &1987124377066130291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2113,6 +2114,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ragdollActive: {fileID: 4438674168195566587, guid: 5a7fd7c0743341d4fac743b0029dfd25, type: 3}
   ragdollDeactive: {fileID: 4438674168195566587, guid: 82451db2258a3c34892fd96d09592d01, type: 3}
+  shooterUI: {fileID: 0}
+  driverUI: {fileID: 0}
+  coalPlayerUI: {fileID: 0}
 --- !u!1 &2433939450347265335
 GameObject:
   m_ObjectHideFlags: 0

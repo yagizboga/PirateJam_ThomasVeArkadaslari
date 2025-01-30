@@ -30,7 +30,7 @@ public class ShooterShoot : MonoBehaviour
     public SkinnedMeshRenderer joints;
     public SkinnedMeshRenderer meshes;
 
-    [SerializeField] private ShooterUI shooterUI;
+    public ShooterUI shooterUI;
 
     private void Start()
     {
