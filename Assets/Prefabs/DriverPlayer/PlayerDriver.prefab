@@ -2085,7 +2085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDistance: 2
-  sphereRadius: 0.1
+  sphereRadius: 0.01
   playerCamera: {fileID: 579509371770959379}
   highlightMaterial: {fileID: 2100000, guid: e37f5da838acd3c4a8207f8c4635f194, type: 2}
 --- !u!1 &6838389218900526061

@@ -26,17 +26,17 @@ public class ShooterShoot : MonoBehaviour
 
     private float deltaTime = 0.0f;
     private PlayerMovement playerMovement;
-    private GameObject crosshair;
 
     public SkinnedMeshRenderer joints;
     public SkinnedMeshRenderer meshes;
+
+    private ShooterUI shooterUI;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
-        crosshair = GameObject.FindGameObjectWithTag("Crosshair");
-        crosshair.SetActive(false);
+        shooterUI = GameObject.FindGameObjectWithTag("ShooterUI").GetComponent<ShooterUI>();
     }
 
     void Update()
@@ -44,10 +44,8 @@ public class ShooterShoot : MonoBehaviour
         if (playerMovement.isActivePlayer)
         {
             ShadowEnable(false);
-            crosshair.SetActive(true);
             afkRifle.SetActive(false);
             //DebugFPS();
-            //Debug.Log(ammoCount);
             if (Input.GetMouseButton(0) && canShoot && ammoCount > 0 && playerMovement.GetIsEmoting() == false)
             {
                 animator.SetTrigger("isShooting");
@@ -68,7 +66,6 @@ public class ShooterShoot : MonoBehaviour
         }
         else if(playerMovement.isActivePlayer == false)
         {
-            crosshair.SetActive(false);
             afkRifle.SetActive(true);
             ShadowEnable(true);
         }
@@ -131,6 +128,7 @@ public class ShooterShoot : MonoBehaviour
             }
         }
         ammoCount -= 1;
+        shooterUI.UpdateAmmo(ammoCount);
     }
 
     public void StopShooting(){
@@ -176,6 +174,7 @@ public class ShooterShoot : MonoBehaviour
 
         canShoot = true;
         ammoCount = maxAmmo;
+        shooterUI.UpdateAmmo(ammoCount);
         isReloading = false;
     }
 

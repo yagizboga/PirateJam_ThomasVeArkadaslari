@@ -3,7 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - shooter
+  - enemy
+  - train
+  - Shovel
+  - Vector
+  - IntroManager
+  - DriverPlayer
+  - Oven
+  - CoalPlayer
+  - PlayerTakeHitPosition
+  - Crosshair
+  - Gas
+  - Brake
+  - ShooterNeck
+  - DriverNeck
+  - CoalPlayerNeck
+  - ShooterUI
+  - DriverUI
+  - CoalPlayerUI
+  - UIObject
   layers:
   - Default
   - TransparentFX
@@ -11,25 +31,25 @@ TagManager:
   - 
   - Water
   - UI
+  - Ground
+  - invisible
   - 
   - 
   - 
   - 
   - 
+  - glow
   - 
   - 
+  - Ragdoll
   - 
   - 
+  - Player
+  - 
+  - CustomCollider
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Head
   - 
   - 
   - 
@@ -43,3 +63,10 @@ TagManager:
     locked: 0
   m_RenderingLayers:
   - Default
+  - Light Layer 1
+  - Light Layer 2
+  - Light Layer 3
+  - Light Layer 4
+  - Light Layer 5
+  - Light Layer 6
+  - Light Layer 7
