@@ -29,7 +29,11 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private float YsmallOffset = 0.6f;
 
     private bool isDead = false;
-    
+
+    private GameObject shooterUI;
+    private GameObject driverUI;
+    private GameObject coalPlayerUI;
+    private GameObject UIObject;
 
     private void Start()
     {
@@ -47,11 +51,37 @@ public class CharacterManager : MonoBehaviour
 
         coalPlayerScript = coalPlayerObj.GetComponent<CoalPlayer>();
 
-        transitionCAM.SetActive(false); 
-        
-        if(driverPlayerMovement.isActivePlayer) activePlayer = driverPlayerObj; 
-        else if(coalPlayerMovement.isActivePlayer) activePlayer = coalPlayerObj;
-        else if (shooterPlayerMovement.isActivePlayer) activePlayer = shooterPlayerObj;
+        transitionCAM.SetActive(false);
+
+        shooterUI = GameObject.FindGameObjectWithTag("ShooterUI");
+        driverUI = GameObject.FindGameObjectWithTag("DriverUI");
+        coalPlayerUI = GameObject.FindGameObjectWithTag("CoalPlayerUI");
+        UIObject = GameObject.FindGameObjectWithTag("UIObject");
+
+        if (driverPlayerMovement.isActivePlayer)
+        {
+            activePlayer = driverPlayerObj;
+            shooterUI.SetActive(false);
+            driverUI.SetActive(true);
+            coalPlayerUI.SetActive(false);
+        }
+            
+        else if (coalPlayerMovement.isActivePlayer)
+        {
+            activePlayer = coalPlayerObj;
+            shooterUI.SetActive(false);
+            driverUI.SetActive(false);
+            coalPlayerUI.SetActive(true);
+        }
+            
+        else if (shooterPlayerMovement.isActivePlayer) 
+        {
+            activePlayer = shooterPlayerObj;
+            shooterUI.SetActive(true);
+            driverUI.SetActive(false);
+            coalPlayerUI.SetActive(false);
+        }
+        UIObject.SetActive(true);
     }
 
     private void Update()
@@ -79,15 +109,43 @@ public class CharacterManager : MonoBehaviour
         FollowActivePlayerXZ();
     }
 
+    private void ChangeUI()
+    {
+        if (driverPlayerMovement.isActivePlayer)
+        {
+            activePlayer = driverPlayerObj;
+            shooterUI.SetActive(false);
+            driverUI.SetActive(true);
+            coalPlayerUI.SetActive(false);
+        }
+
+        else if (coalPlayerMovement.isActivePlayer)
+        {
+            activePlayer = coalPlayerObj;
+            shooterUI.SetActive(false);
+            driverUI.SetActive(false);
+            coalPlayerUI.SetActive(true);
+        }
+
+        else if (shooterPlayerMovement.isActivePlayer)
+        {
+            activePlayer = shooterPlayerObj;
+            shooterUI.SetActive(true);
+            driverUI.SetActive(false);
+            coalPlayerUI.SetActive(false);
+        }
+    }
+
     private IEnumerator ChangePlayer(GameObject nextPlayer, PlayerMovement nextPlayerMovement)
     {
+        UIObject.SetActive(false);
         isInTransition = true;
         if (activePlayer != null)
         {
             var currentPlayerMovement = activePlayer.GetComponent<PlayerMovement>();
             currentPlayerMovement.SetIsActivePlayer(false);
         }
-        Time.timeScale = 0.5f;
+        Time.timeScale = 0f;
 
         transitionCAM.SetActive(true);
         Vector3 initialPosition = transitionCAM.transform.position;
@@ -109,11 +167,26 @@ public class CharacterManager : MonoBehaviour
         if (activePlayer == coalPlayerObj)
         {
             coalPlayerScript.SetActiveShovel();
+
+            shooterUI.SetActive(false);
+            driverUI.SetActive(false);
+            coalPlayerUI.SetActive(true);
         }
         if(activePlayer == shooterPlayerObj)
         {
             shooterPlayerMovement.SetAnimatorActivePlayer(true);
+
+            shooterUI.SetActive(true);
+            driverUI.SetActive(false);
+            coalPlayerUI.SetActive(false);
         }
+        if(activePlayer == driverPlayerObj)
+        {
+            shooterUI.SetActive(false);
+            driverUI.SetActive(true);
+            coalPlayerUI.SetActive(false);
+        }
+        UIObject.SetActive(true);
         Time.timeScale = 1f;
     }
 

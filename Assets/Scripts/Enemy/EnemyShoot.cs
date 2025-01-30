@@ -58,7 +58,7 @@ public class EnemyShoot : MonoBehaviour
 
     void Update()
     {
-        if(currentTarget.CompareTag("shooter") && agent != null)
+        if(currentTarget != null && currentTarget.CompareTag("shooter") && agent != null && agent.isOnNavMesh)
         {
             if (shooterNeck != null)
             {
@@ -69,7 +69,7 @@ public class EnemyShoot : MonoBehaviour
 
             
 
-            if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
+            if (agent.isOnNavMesh && agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
             {
                 animator.SetBool("isShooting", true);
                 if (canShoot)
@@ -86,7 +86,7 @@ public class EnemyShoot : MonoBehaviour
                 animator.SetBool("isShooting", false);
             }
         }
-        else if(currentTarget.CompareTag("DriverPlayer") && agent != null)
+        else if(currentTarget != null && currentTarget.CompareTag("DriverPlayer") && agent != null && agent.isOnNavMesh)
         {
             if (driverPlayerNeck != null)
             {
@@ -97,7 +97,7 @@ public class EnemyShoot : MonoBehaviour
 
             
 
-            if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
+            if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f && agent.isOnNavMesh)
             {
                 animator.SetBool("isShooting", true);
                 if (canShoot)
@@ -114,7 +114,7 @@ public class EnemyShoot : MonoBehaviour
                 animator.SetBool("isShooting", false);
             }
         }
-        else if(currentTarget.CompareTag("CoalPlayer") && agent != null)
+        else if(currentTarget != null && currentTarget.CompareTag("CoalPlayer") && agent != null && agent.isOnNavMesh)
         {
             if (coalPlayerNeck != null)
             {
@@ -125,7 +125,7 @@ public class EnemyShoot : MonoBehaviour
 
             
 
-            if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f)
+            if (agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f && agent.isOnNavMesh)
             {
                 animator.SetBool("isShooting", true);
                 if (canShoot)
@@ -184,7 +184,7 @@ public class EnemyShoot : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (agent != null && agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f && currentTarget != null)
+        if (agent.isOnNavMesh && agent != null && agent.velocity.magnitude < .1f && agent.remainingDistance < agent.stoppingDistance + .1f && currentTarget != null)
         {
             enemySpine.transform.LookAt(currentTarget.transform);
             enemySpine.transform.rotation = Quaternion.Euler(

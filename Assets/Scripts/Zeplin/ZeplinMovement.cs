@@ -48,7 +48,8 @@ public class ZeplinMovement : MonoBehaviour
 
     IEnumerator MoveToFlee()
     {
-        yield return StartCoroutine(MoveToPosition(fleePosition.position, moveDuration)); 
+        yield return StartCoroutine(MoveToPosition(fleePosition.position, moveDuration));
+        StartCoroutine(ZeplinCooldown());
     }
 
     IEnumerator MoveToPosition(Vector3 target, float duration)
@@ -68,5 +69,12 @@ public class ZeplinMovement : MonoBehaviour
         }
 
         transform.position = target;
+    }
+
+    IEnumerator ZeplinCooldown()
+    {
+        float cooldownTime = Random.Range(3f, 9f);
+        yield return new WaitForSeconds(cooldownTime);
+        CallZeplin();
     }
 }

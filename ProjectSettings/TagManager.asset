@@ -20,6 +20,10 @@ TagManager:
   - ShooterNeck
   - DriverNeck
   - CoalPlayerNeck
+  - ShooterUI
+  - DriverUI
+  - CoalPlayerUI
+  - UIObject
   layers:
   - Default
   - TransparentFX

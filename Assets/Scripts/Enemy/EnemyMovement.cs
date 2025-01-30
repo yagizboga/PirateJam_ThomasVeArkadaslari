@@ -32,17 +32,13 @@ public class EnemyMovement : MonoBehaviour
     void FixedUpdate()
     {
         Transform target = DetermineTarget();
-        if (target != null && agent != null)
+        if (target != null && agent != null && agent.isOnNavMesh)
         {
             agent.SetDestination(target.position);
             enemyShoot.SetTarget(target.gameObject);
         }
-        else
-        {
-            Debug.Log("target is null!");
-        }
 
-        if(agent != null)
+        if(agent != null && agent.isOnNavMesh)
         {
             animator.SetFloat("speed", agent.velocity.magnitude);
         }

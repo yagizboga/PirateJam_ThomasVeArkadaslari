@@ -85,4 +85,6 @@ public class CoalEconomy : MonoBehaviour
         }
 
     }
+
+    public float GetCoalBalance() { return coalBalance; }
 }
