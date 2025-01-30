@@ -30,13 +30,17 @@ public class ShooterShoot : MonoBehaviour
     public SkinnedMeshRenderer joints;
     public SkinnedMeshRenderer meshes;
 
-    private ShooterUI shooterUI;
+    [SerializeField] private ShooterUI shooterUI;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
-        shooterUI = GameObject.FindGameObjectWithTag("ShooterUI").GetComponent<ShooterUI>();
+        //shooterUI = GameObject.FindGameObjectWithTag("ShooterUI").GetComponent<ShooterUI>();
+        if(shooterUI == null)
+        {
+            Debug.Log("NL");
+        }
     }
 
     void Update()

@@ -16,6 +16,10 @@ public class PlayerHealth : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    [SerializeField] private ShooterUI shooterUI;
+    [SerializeField] private DriverUI driverUI;
+    [SerializeField] private CoalPlayerUI coalPlayerUI;
+
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -30,13 +34,25 @@ public class PlayerHealth : MonoBehaviour
         lastDamageTime = Time.time;
 
         if (gameObject.CompareTag("shooter"))
+        {
+            shooterUI.UpdateHealth(health);
             Debug.Log("shooter health: " + health);
+        }
+            
 
         if (gameObject.CompareTag("DriverPlayer"))
+        {
+            //driverUI.UpdateHealth(health);
             Debug.Log("DriverPlayer health: " + health);
+        }
+            
 
         if (gameObject.CompareTag("CoalPlayer"))
+        {
+            //coalPlayerUI.UpdateHealth(health);
             Debug.Log("CoalPlayer health: " + health);
+        }
+            
 
         if (health <= 0 && !isDead)
         {
@@ -109,6 +125,11 @@ public class PlayerHealth : MonoBehaviour
     public bool GetIsDead()
     {
         return isDead;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return health;
     }
 
 }
