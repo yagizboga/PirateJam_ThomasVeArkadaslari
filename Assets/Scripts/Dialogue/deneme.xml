@@ -1,31 +1,43 @@
 <?xml version="1.0"?>
 
 <dialogues>
+
+
 <dialogue>
-    <question>
-        "question1"
-    </question>
-    <answer1>
-        "answer1"    
-    </answer1>
-    <answer2>
-        "answer2"
-    </answer2>
+    <question>merhaba nasılsın</question>
+    <answer1>iyiyim</answer1>
+    <answer2>kötüyüm</answer2>
     <nextdialogueindex1>1</nextdialogueindex1>
     <nextdialogueindex2>2</nextdialogueindex2>
 </dialogue>
 
+
 <dialogue>
-    <question>"question1 sol </question>
-    <answer1>"answer2 sol"</answer1>
-    <answer2>"answer 2 sağ"</answer2>
+    <question>süper bugün ne yapacaksın</question>
+    <answer1>oyun oynicam</answer1>
+    <answer2>satranç taşları üreteceğim</answer2>
+    <nextdialogueindex1>3</nextdialogueindex1>
+    <nextdialogueindex2>3</nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>aaaa neden</question>
+    <answer1>cort</answer1>
+    <answer2>zort</answer2>
+    <nextdialogueindex1>4</nextdialogueindex1>
+    <nextdialogueindex2>4</nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>ahahahah</question>
+    <answer1>answer3 sol</answer1>
+    <answer2>answer3 sağ</answer2>
     <nextdialogueindex1>-1</nextdialogueindex1>
     <nextdialogueindex2>-1</nextdialogueindex2>
 </dialogue>
 
-
 <dialogue>
-    <question>question 1 sağ</question>
+    <question>mmmeeh</question>
     <answer1>answer3 sol</answer1>
     <answer2>answer3 sağ</answer2>
     <nextdialogueindex1>-1</nextdialogueindex1>

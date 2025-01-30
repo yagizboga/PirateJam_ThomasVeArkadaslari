@@ -26,11 +26,10 @@ public class MapGenerator : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if(Input.GetKey("w")){
+        if(Input.GetKey("o") && GameObject.FindGameObjectWithTag("repairtrigger").GetComponent<RepairTrigger>().isBroken ==false){
             if(speedInit <5){
                 speedInit+=Time.deltaTime;
             }
-            finalSpeed = speedInit * acceleration;
         }
         else{
             if(speedInit > 0){
@@ -38,7 +37,14 @@ public class MapGenerator : MonoBehaviour
             }
             
         }
-        transform.position += new Vector3(finalSpeed, 0,0) * Time.deltaTime;
+        if(GameObject.FindGameObjectWithTag("repairtrigger").GetComponent<RepairTrigger>().isBroken ==false){
+            transform.position += new Vector3(finalSpeed, 0,0) * Time.deltaTime;
+            finalSpeed = speedInit * acceleration;
+        }
+        else{
+            finalSpeed = 0;
+        }
+        
     }
 
     void LateUpdate(){

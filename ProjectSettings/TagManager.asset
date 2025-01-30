@@ -17,9 +17,14 @@ TagManager:
   - Crosshair
   - Gas
   - Brake
+<<<<<<< Updated upstream
   - ShooterNeck
   - DriverNeck
   - CoalPlayerNeck
+=======
+  - repairtrigger
+  - trainfront
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

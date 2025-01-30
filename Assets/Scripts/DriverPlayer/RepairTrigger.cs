@@ -10,7 +10,7 @@ public class RepairTrigger : MonoBehaviour
     private float repairTimer = 0f;
     private PlayerMovement driverMovement;
 
-    private bool isBroken = false; 
+    public bool isBroken = false; 
 
     private void Start()
     {
