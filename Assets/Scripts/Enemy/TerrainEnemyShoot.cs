@@ -69,6 +69,7 @@ public class TerrainEnemyShoot : MonoBehaviour
 
     public void Shoot()
     {
+        Debug.Log(fireDistance + " " + remainingDistance);
         RaycastHit hit;
         Debug.DrawRay(bulletspawnpoint.transform.position, direction, Color.blue);
         if (Physics.Raycast(bulletspawnpoint.transform.position, direction, out hit))
