@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 10613000}
   - component: {fileID: 10612999}
   m_Layer: 5
-  m_Name: mermi 20
+  m_Name: mermi 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.200005, y: 60.600006}
+  m_AnchoredPosition: {x: 13.200005, y: 57.799973}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10612999
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 90170467}
   - component: {fileID: 90170466}
   m_Layer: 5
-  m_Name: mermi 22 (1)
+  m_Name: mermi 24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,7 +305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229999, y: 169.30003}
+  m_AnchoredPosition: {x: 13.229999, y: 166.5}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90170466
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 179962913}
   - component: {fileID: 179962912}
   m_Layer: 5
-  m_Name: mermi 27
+  m_Name: mermi 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -593,7 +593,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.200005, y: -21.7}
+  m_AnchoredPosition: {x: 2.8, y: -24.500036}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179962912
@@ -715,7 +715,7 @@ GameObject:
   - component: {fileID: 202600000}
   - component: {fileID: 202599999}
   m_Layer: 5
-  m_Name: mermi 25 (1)
+  m_Name: mermi 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -737,7 +737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229999, y: 105.60002}
+  m_AnchoredPosition: {x: 13.229999, y: 102.79999}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &202599999
@@ -929,6 +929,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229052669}
   m_CullTransparentMesh: 1
+--- !u!1 &241304880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 241304881}
+  - component: {fileID: 241304882}
+  m_Layer: 0
+  m_Name: VignetteEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &241304881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241304880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 832575519}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &241304882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241304880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c0f2e9e410bce4baa3e3aa3b18e4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postProcessVolume: {fileID: 832575518}
 --- !u!1 &253007417
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +986,7 @@ GameObject:
   - component: {fileID: 253007420}
   - component: {fileID: 253007419}
   m_Layer: 5
-  m_Name: mermi 30 (1)
+  m_Name: mermi 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -963,7 +1008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.3, y: 78.3}
+  m_AnchoredPosition: {x: 13.3, y: 75.49997}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &253007419
@@ -1021,7 +1066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &276768415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1227,7 +1272,7 @@ GameObject:
   - component: {fileID: 322452960}
   - component: {fileID: 322452959}
   m_Layer: 5
-  m_Name: mermi 29
+  m_Name: mermi 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1249,7 +1294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.2, y: -31}
+  m_AnchoredPosition: {x: -4.7, y: -33.800034}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322452959
@@ -1407,7 +1452,7 @@ GameObject:
   - component: {fileID: 362418916}
   - component: {fileID: 362418915}
   m_Layer: 5
-  m_Name: mermi 22
+  m_Name: mermi 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1429,7 +1474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.200005, y: 51.20001}
+  m_AnchoredPosition: {x: 13.200005, y: 48.39997}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &362418915
@@ -1557,7 +1602,7 @@ GameObject:
   - component: {fileID: 390009821}
   - component: {fileID: 390009820}
   m_Layer: 5
-  m_Name: mermi 30
+  m_Name: mermi 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1579,7 +1624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.37, y: -39.8}
+  m_AnchoredPosition: {x: -12.3, y: -42.600037}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &390009820
@@ -1958,7 +2003,7 @@ GameObject:
   - component: {fileID: 448589969}
   - component: {fileID: 448589968}
   m_Layer: 5
-  m_Name: mermi 23 (1)
+  m_Name: mermi 18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1980,7 +2025,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229999, y: 114.80002}
+  m_AnchoredPosition: {x: 13.229999, y: 111.999985}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &448589968
@@ -2108,7 +2153,7 @@ GameObject:
   - component: {fileID: 521958476}
   - component: {fileID: 521958475}
   m_Layer: 5
-  m_Name: mermi 19
+  m_Name: mermi 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2130,7 +2175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.200005, y: 14.3}
+  m_AnchoredPosition: {x: 13.200005, y: 11.499965}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &521958475
@@ -2485,32 +2530,31 @@ RectTransform:
   m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 390009819}
-  - {fileID: 253007418}
-  - {fileID: 322452958}
-  - {fileID: 2060571199}
-  - {fileID: 1865451918}
-  - {fileID: 672970865}
-  - {fileID: 179962911}
-  - {fileID: 1063865127}
-  - {fileID: 757533288}
-  - {fileID: 1901512626}
-  - {fileID: 1995999413}
-  - {fileID: 202599998}
-  - {fileID: 1230725358}
-  - {fileID: 861793795}
-  - {fileID: 1782437840}
-  - {fileID: 448589967}
-  - {fileID: 362418914}
-  - {fileID: 90170465}
-  - {fileID: 692456360}
-  - {fileID: 677393695}
-  - {fileID: 10612998}
   - {fileID: 2131622682}
-  - {fileID: 521958474}
+  - {fileID: 90170465}
+  - {fileID: 861793795}
+  - {fileID: 1901512626}
+  - {fileID: 672970865}
   - {fileID: 849602101}
+  - {fileID: 677393695}
+  - {fileID: 448589967}
+  - {fileID: 202599998}
+  - {fileID: 1063865127}
+  - {fileID: 2060571199}
+  - {fileID: 253007418}
   - {fileID: 687881507}
-  - {fileID: 1805815340}
+  - {fileID: 10612998}
+  - {fileID: 362418914}
+  - {fileID: 1230725358}
+  - {fileID: 757533288}
+  - {fileID: 1865451918}
+  - {fileID: 521958474}
+  - {fileID: 692456360}
+  - {fileID: 1782437840}
+  - {fileID: 1995999413}
+  - {fileID: 179962911}
+  - {fileID: 322452958}
+  - {fileID: 390009819}
   m_Father: {fileID: 2127088737}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2742,7 +2786,7 @@ GameObject:
   - component: {fileID: 672970867}
   - component: {fileID: 672970866}
   m_Layer: 5
-  m_Name: mermi 28 (1)
+  m_Name: mermi 21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2764,7 +2808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229994, y: 141.60002}
+  m_AnchoredPosition: {x: 13.229994, y: 138.79999}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &672970866
@@ -2817,7 +2861,7 @@ GameObject:
   - component: {fileID: 677393697}
   - component: {fileID: 677393696}
   m_Layer: 5
-  m_Name: mermi 21 (1)
+  m_Name: mermi 19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2839,7 +2883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229999, y: 124.20002}
+  m_AnchoredPosition: {x: 13.229999, y: 121.39999}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &677393696
@@ -2892,7 +2936,7 @@ GameObject:
   - component: {fileID: 687881509}
   - component: {fileID: 687881508}
   m_Layer: 5
-  m_Name: mermi 18
+  m_Name: mermi 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2914,7 +2958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.200005, y: 68.80001}
+  m_AnchoredPosition: {x: 13.200005, y: 65.99998}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687881508
@@ -2967,7 +3011,7 @@ GameObject:
   - component: {fileID: 692456362}
   - component: {fileID: 692456361}
   m_Layer: 5
-  m_Name: mermi 21
+  m_Name: mermi 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2989,7 +3033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.200005, y: 6.1}
+  m_AnchoredPosition: {x: 13.200005, y: 3.2999644}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &692456361
@@ -3117,7 +3161,7 @@ GameObject:
   - component: {fileID: 757533290}
   - component: {fileID: 757533289}
   m_Layer: 5
-  m_Name: mermi 26
+  m_Name: mermi 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3139,7 +3183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.200005, y: 32.800007}
+  m_AnchoredPosition: {x: 13.200005, y: 29.999971}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &757533289
@@ -3272,7 +3316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &781390654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3414,7 +3458,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 241304881}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &849602100
@@ -3429,7 +3474,7 @@ GameObject:
   - component: {fileID: 849602103}
   - component: {fileID: 849602102}
   m_Layer: 5
-  m_Name: mermi 19 (1)
+  m_Name: mermi 20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3451,7 +3496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229999, y: 132.40002}
+  m_AnchoredPosition: {x: 13.229999, y: 129.59999}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849602102
@@ -3504,7 +3549,7 @@ GameObject:
   - component: {fileID: 861793797}
   - component: {fileID: 861793796}
   m_Layer: 5
-  m_Name: mermi 24 (1)
+  m_Name: mermi 23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3526,7 +3571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229999, y: 160.10004}
+  m_AnchoredPosition: {x: 13.229999, y: 157.3}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861793796
@@ -3999,7 +4044,7 @@ GameObject:
   - component: {fileID: 1063865129}
   - component: {fileID: 1063865128}
   m_Layer: 5
-  m_Name: mermi 27 (1)
+  m_Name: mermi 16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4021,7 +4066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229999, y: 96.400024}
+  m_AnchoredPosition: {x: 13.229999, y: 93.59999}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063865128
@@ -4339,6 +4384,32 @@ MonoBehaviour:
   ammoText: {fileID: 2069214371}
   maxAmmoText: {fileID: 1932966257}
   healthBar: {fileID: 508084502}
+  ammoIcons:
+  - {fileID: 390009818}
+  - {fileID: 322452957}
+  - {fileID: 179962910}
+  - {fileID: 1995999412}
+  - {fileID: 1782437839}
+  - {fileID: 692456359}
+  - {fileID: 521958473}
+  - {fileID: 1865451917}
+  - {fileID: 757533287}
+  - {fileID: 1230725357}
+  - {fileID: 362418913}
+  - {fileID: 10612997}
+  - {fileID: 687881506}
+  - {fileID: 253007417}
+  - {fileID: 2060571198}
+  - {fileID: 1063865126}
+  - {fileID: 202599997}
+  - {fileID: 448589966}
+  - {fileID: 677393694}
+  - {fileID: 849602100}
+  - {fileID: 672970864}
+  - {fileID: 1901512625}
+  - {fileID: 861793794}
+  - {fileID: 90170464}
+  - {fileID: 2131622681}
 --- !u!1 &1206428389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4502,7 +4573,7 @@ GameObject:
   - component: {fileID: 1230725360}
   - component: {fileID: 1230725359}
   m_Layer: 5
-  m_Name: mermi 24
+  m_Name: mermi 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4524,7 +4595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.200005, y: 42.000008}
+  m_AnchoredPosition: {x: 13.200005, y: 39.199974}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1230725359
@@ -4760,7 +4831,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1278733333}
-  - component: {fileID: 1278733334}
   m_Layer: 5
   m_Name: ShooterUI
   m_TagString: ShooterUI
@@ -4792,21 +4862,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1278733334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278733332}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1337eeee21ba5914dafcfa673e5d1a67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoText: {fileID: 2069214371}
-  maxAmmoText: {fileID: 1932966257}
-  healthBar: {fileID: 508084502}
 --- !u!1 &1282537777
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,7 +5948,7 @@ GameObject:
   - component: {fileID: 1782437842}
   - component: {fileID: 1782437841}
   m_Layer: 5
-  m_Name: mermi 23
+  m_Name: mermi 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5915,7 +5970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.200005, y: -3.3}
+  m_AnchoredPosition: {x: 13.200005, y: -6.1000357}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1782437841
@@ -5955,81 +6010,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782437839}
-  m_CullTransparentMesh: 1
---- !u!1 &1805815339
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1805815340}
-  - component: {fileID: 1805815342}
-  - component: {fileID: 1805815341}
-  m_Layer: 5
-  m_Name: mermi 18 (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1805815340
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805815339}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 623940770}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229999, y: 186.90002}
-  m_SizeDelta: {x: 17.7856, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1805815341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805815339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 30c57a01a4efa9649b13ad1829553591, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1805815342
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805815339}
   m_CullTransparentMesh: 1
 --- !u!1 &1811519878
 GameObject:
@@ -6347,7 +6327,7 @@ GameObject:
   - component: {fileID: 1865451920}
   - component: {fileID: 1865451919}
   m_Layer: 5
-  m_Name: mermi 28
+  m_Name: mermi 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6369,7 +6349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.2, y: 23.5}
+  m_AnchoredPosition: {x: 13.2, y: 20.699965}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1865451919
@@ -6422,7 +6402,7 @@ GameObject:
   - component: {fileID: 1901512628}
   - component: {fileID: 1901512627}
   m_Layer: 5
-  m_Name: mermi 26 (1)
+  m_Name: mermi 22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6444,7 +6424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229999, y: 150.90002}
+  m_AnchoredPosition: {x: 13.229999, y: 148.09999}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1901512627
@@ -6936,7 +6916,7 @@ GameObject:
   - component: {fileID: 1995999415}
   - component: {fileID: 1995999414}
   m_Layer: 5
-  m_Name: mermi 25
+  m_Name: mermi 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6958,7 +6938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.200005, y: -12.5}
+  m_AnchoredPosition: {x: 8, y: -15.300035}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1995999414
@@ -7086,7 +7066,7 @@ GameObject:
   - component: {fileID: 2060571201}
   - component: {fileID: 2060571200}
   m_Layer: 5
-  m_Name: mermi 29 (1)
+  m_Name: mermi 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7108,7 +7088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229994, y: 87.10002}
+  m_AnchoredPosition: {x: 13.229994, y: 84.29999}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2060571200
@@ -7335,7 +7315,7 @@ GameObject:
   - component: {fileID: 2131622684}
   - component: {fileID: 2131622683}
   m_Layer: 5
-  m_Name: mermi 20 (1)
+  m_Name: mermi 25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7357,7 +7337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.229999, y: 178.70003}
+  m_AnchoredPosition: {x: 13.229999, y: 175.9}
   m_SizeDelta: {x: 17.7856, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131622683
@@ -7465,7 +7445,7 @@ PrefabInstance:
     - target: {fileID: 6253233008302932019, guid: 4699e183efe717c49a4f77746c97c982, type: 3}
       propertyPath: shooterUI
       value: 
-      objectReference: {fileID: 1278733334}
+      objectReference: {fileID: 1196102226}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7523,6 +7503,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: coalBulpAfk
+      value: 
+      objectReference: {fileID: 430335999}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: coalBulpAlert
+      value: 
+      objectReference: {fileID: 770314608}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: driverBulpAfk
+      value: 
+      objectReference: {fileID: 276768414}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: coalBulpActive
+      value: 
+      objectReference: {fileID: 1111980148}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: shooterBulpAfk
+      value: 
+      objectReference: {fileID: 1252493549}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: driverBulpAlert
+      value: 
+      objectReference: {fileID: 1393555901}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: driverBulpActive
+      value: 
+      objectReference: {fileID: 781390653}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: shooterBulpAlert
+      value: 
+      objectReference: {fileID: 1601570439}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: shooterBulpActive
+      value: 
+      objectReference: {fileID: 1929632303}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
