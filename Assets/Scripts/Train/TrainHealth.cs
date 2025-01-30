@@ -2,15 +2,34 @@ using UnityEngine;
 
 public class TrainHealth : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private float trainMaxHealth = 100f;
+    private float trainCurrentHealth;
+
+    private DriverUI driverUI;
+
+    private void Start()
     {
+        driverUI = GameObject.FindGameObjectWithTag("DriverUI").GetComponent<DriverUI>();
+        trainCurrentHealth = trainMaxHealth;
+    }
+
+    public void TrainTakeDamage(float damage)
+    {
+        if(trainCurrentHealth > 0f)
+        {
+            trainCurrentHealth -= damage;
+            driverUI.UpdateTrainHealthUI(trainCurrentHealth);
+        }
+        else
+        {
+            //death screen
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public float GetTrainHealth() 
     {
-        
+        return trainCurrentHealth; 
     }
 }
