@@ -35,6 +35,18 @@ public class CharacterManager : MonoBehaviour
     private GameObject coalPlayerUI;
     private GameObject UIObject;
 
+    public GameObject driverBulpAfk;
+    public GameObject coalBulpAfk;
+    public GameObject shooterBulpAfk;
+
+    public GameObject driverBulpActive;
+    public GameObject coalBulpActive;
+    public GameObject shooterBulpActive;
+
+    public GameObject driverBulpAlert;
+    public GameObject coalBulpAlert;
+    public GameObject shooterBulpAlert;
+
     private void Start()
     {
         driverPlayerObj = GameObject.FindGameObjectWithTag("DriverPlayer");
@@ -64,6 +76,8 @@ public class CharacterManager : MonoBehaviour
             shooterUI.SetActive(false);
             driverUI.SetActive(true);
             coalPlayerUI.SetActive(false);
+
+            ActivateDriverBulp();
         }
             
         else if (coalPlayerMovement.isActivePlayer)
@@ -72,6 +86,8 @@ public class CharacterManager : MonoBehaviour
             shooterUI.SetActive(false);
             driverUI.SetActive(false);
             coalPlayerUI.SetActive(true);
+
+            ActivateCoalBulp();
         }
             
         else if (shooterPlayerMovement.isActivePlayer) 
@@ -80,6 +96,8 @@ public class CharacterManager : MonoBehaviour
             shooterUI.SetActive(true);
             driverUI.SetActive(false);
             coalPlayerUI.SetActive(false);
+
+            ActivateShooterBulp();
         }
         UIObject.SetActive(true);
     }
@@ -171,6 +189,8 @@ public class CharacterManager : MonoBehaviour
             shooterUI.SetActive(false);
             driverUI.SetActive(false);
             coalPlayerUI.SetActive(true);
+
+            ActivateCoalBulp();
         }
         if(activePlayer == shooterPlayerObj)
         {
@@ -179,12 +199,16 @@ public class CharacterManager : MonoBehaviour
             shooterUI.SetActive(true);
             driverUI.SetActive(false);
             coalPlayerUI.SetActive(false);
+
+            ActivateShooterBulp();
         }
         if(activePlayer == driverPlayerObj)
         {
             shooterUI.SetActive(false);
             driverUI.SetActive(true);
             coalPlayerUI.SetActive(false);
+
+            ActivateDriverBulp();
         }
         UIObject.SetActive(true);
         Time.timeScale = 1f;
@@ -234,5 +258,50 @@ public class CharacterManager : MonoBehaviour
         {
             isDead = true;
         }
+    }
+
+    private void ActivateDriverBulp()
+    {
+        driverBulpAfk.SetActive(false);
+        driverBulpActive.SetActive(true);
+        driverBulpAlert.SetActive(false);
+
+        coalBulpAfk.SetActive(true);
+        coalBulpActive.SetActive(false);
+        coalBulpAlert.SetActive(false);
+
+        shooterBulpAfk.SetActive(true);
+        shooterBulpActive.SetActive(false);
+        shooterBulpAlert.SetActive(false);
+    }
+
+    private void ActivateCoalBulp()
+    {
+        driverBulpAfk.SetActive(true);
+        driverBulpActive.SetActive(false);
+        driverBulpAlert.SetActive(false);
+
+        coalBulpAfk.SetActive(false);
+        coalBulpActive.SetActive(true);
+        coalBulpAlert.SetActive(false);
+
+        shooterBulpAfk.SetActive(true);
+        shooterBulpActive.SetActive(false);
+        shooterBulpAlert.SetActive(false);
+    }
+
+    private void ActivateShooterBulp()
+    {
+        driverBulpAfk.SetActive(true);
+        driverBulpActive.SetActive(false);
+        driverBulpAlert.SetActive(false);
+
+        coalBulpAfk.SetActive(true);
+        coalBulpActive.SetActive(false);
+        coalBulpAlert.SetActive(false);
+
+        shooterBulpAfk.SetActive(false);
+        shooterBulpActive.SetActive(true);
+        shooterBulpAlert.SetActive(false);
     }
 }

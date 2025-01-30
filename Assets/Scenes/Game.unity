@@ -1021,7 +1021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &276768415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3272,7 +3272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &781390654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7523,6 +7523,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: coalBulpAfk
+      value: 
+      objectReference: {fileID: 430335999}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: coalBulpAlert
+      value: 
+      objectReference: {fileID: 770314608}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: driverBulpAfk
+      value: 
+      objectReference: {fileID: 276768414}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: coalBulpActive
+      value: 
+      objectReference: {fileID: 1111980148}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: shooterBulpAfk
+      value: 
+      objectReference: {fileID: 1252493549}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: driverBulpAlert
+      value: 
+      objectReference: {fileID: 1393555901}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: driverBulpActive
+      value: 
+      objectReference: {fileID: 781390653}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: shooterBulpAlert
+      value: 
+      objectReference: {fileID: 1601570439}
+    - target: {fileID: 8582674193709213025, guid: f121d2c2fe476174f8de03b06c60f03a, type: 3}
+      propertyPath: shooterBulpActive
+      value: 
+      objectReference: {fileID: 1929632303}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
