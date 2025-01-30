@@ -1,9 +1,17 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/Flame02.png.meta
 guid: bae572b8abde45b49abfe9fb73223b07
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
+========
+guid: bab362c8689cd0d42930b7c7cb38b148
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+>>>>>>>> Stashed changes:Assets/Agarkova_CG/Beard_man/Art/Textures/Beard_man_hair/Beard_man_hair_albedo.png.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -20,12 +28,10 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -64,8 +70,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
-  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -77,7 +81,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -90,11 +93,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+<<<<<<<< Updated upstream:Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/Flame02.png.meta
     buildTarget: Server
+========
+    buildTarget: WebGL
+>>>>>>>> Stashed changes:Assets/Agarkova_CG/Beard_man/Art/Textures/Beard_man_hair/Beard_man_hair_albedo.png.meta
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -103,7 +109,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -119,9 +124,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<<< Updated upstream:Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/Flame02.png.meta
     nameFileIdTable: {}
   mipmapLimitGroupName: 
+========
+  spritePackingTag: 
+>>>>>>>> Stashed changes:Assets/Agarkova_CG/Beard_man/Art/Textures/Beard_man_hair/Beard_man_hair_albedo.png.meta
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 221725
+  packageName: Beard man in jeans and shirt
+  packageVersion: 1.0
+  assetPath: Assets/Agarkova_CG/Beard_man/Art/Textures/Beard_man_hair/Beard_man_hair_albedo.png
+  uploadId: 498365
