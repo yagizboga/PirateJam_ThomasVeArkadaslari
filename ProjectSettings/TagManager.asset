@@ -18,9 +18,14 @@ TagManager:
   - Gas
   - Brake
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - ShooterNeck
   - DriverNeck
   - CoalPlayerNeck
+=======
+  - repairtrigger
+  - trainfront
+>>>>>>> Stashed changes
 =======
   - repairtrigger
   - trainfront
