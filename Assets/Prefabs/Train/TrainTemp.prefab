@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 897246143898317567}
   - component: {fileID: 3244265021049843415}
   - component: {fileID: 1855720635568645083}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: traintrigger
   m_TagString: train
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 1771879350536589727}
   - component: {fileID: 9160301672974473593}
   - component: {fileID: 4206917080814673841}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: trainfront
   m_TagString: trainfront
   m_Icon: {fileID: 0}

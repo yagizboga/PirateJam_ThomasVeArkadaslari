@@ -148,10 +148,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: maptrigger
       objectReference: {fileID: 0}
-    - target: {fileID: 4477313125268733361, guid: 844089c4d0482a34c8b0db319bfc2f4a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
