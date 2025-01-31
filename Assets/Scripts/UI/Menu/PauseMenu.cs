@@ -15,7 +15,6 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        // ESC tuþuna basýlýnca menüyü aç/kapat
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)

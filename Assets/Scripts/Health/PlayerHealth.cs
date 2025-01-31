@@ -20,6 +20,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private DriverUI driverUI;
     [SerializeField] private CoalPlayerUI coalPlayerUI;
 
+    public DieMenu dieMenu;
+
     private bool isRegening = false;
 
     private void Start()
@@ -44,6 +46,24 @@ public class PlayerHealth : MonoBehaviour
             bool isActivePlayer = playerMovement.isActivePlayer;
             SpawnRagdoll(isActivePlayer);
             Destroy(gameObject);
+
+            if (gameObject.CompareTag("shooter"))
+            {
+                dieMenu.DieMenuOpen("SHOOTER");
+            }
+
+
+            if (gameObject.CompareTag("DriverPlayer"))
+            {
+                dieMenu.DieMenuOpen("DRIVER");
+            }
+
+
+            if (gameObject.CompareTag("CoalPlayer"))
+            {
+                dieMenu.DieMenuOpen("COAL STOKER");
+            }
+            
         }
     }
     private void SpawnRagdoll(bool isActivePlayer)

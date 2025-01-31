@@ -15155,6 +15155,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5822821947120931875, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 53d3f845a580f494ebbd50ccf105068f, type: 2}
     - target: {fileID: 5866666021909216657, guid: 075fa260e3797e242bddb1e7569e7fe4, type: 3}
       propertyPath: m_Controller
       value: 
