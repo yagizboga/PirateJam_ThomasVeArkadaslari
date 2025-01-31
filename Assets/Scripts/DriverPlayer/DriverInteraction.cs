@@ -34,7 +34,7 @@ public class DriverInteraction : MonoBehaviour
                     {
                         if (hitObject.CompareTag("Gas"))
                         {
-                            Debug.Log("Gas interacted!");
+                            hitObject.GetComponent<gas>().ChangeGas();
                         }
                         else if (hitObject.CompareTag("Brake"))
                         {

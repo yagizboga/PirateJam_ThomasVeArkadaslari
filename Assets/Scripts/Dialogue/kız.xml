@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<dialogues>
+
+
+<dialogue>
+    <question> You are not wanted here, leave now </question>
+    <answer1>We did not come to harm you</answer1>
+    <answer2>Watch your words </answer2>
+    <nextdialogueindex1>1</nextdialogueindex1>
+    <nextdialogueindex2>1</nextdialogueindex2>
+</dialogue>
+
+
+<dialogue>
+    <question>Oh, so you’ll get rid of me just like you did with my family, isn’t that right?</question>
+    <answer1>We did not kill your family</answer1>
+    <answer2>You are confusing us with someone else</answer2>
+    <nextdialogueindex1>2</nextdialogueindex1>
+    <nextdialogueindex2>2</nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>Aren’t you NovaMind’s soldiers? Whether it was you or them, what difference does it make?</question>
+    <answer1>NovaMind does not take lives without reason </answer1>
+    <answer2>If your family was innocent, they would not have been killed</answer2>
+    <nextdialogueindex1>3</nextdialogueindex1>
+    <nextdialogueindex2>3</nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>My mother is blind, and my father is a war veteran. How could they possibly pose a threat?</question>
+    <answer1>It seems they were of little use to society anymore</answer1>
+    <answer2>They have been spared from their miserable lives</answer2>
+    <nextdialogueindex1>4</nextdialogueindex1>
+    <nextdialogueindex2>4</nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>If they were of no use to society, they don’t deserve to live, right? The only thing you know is how to benefit from us. If something doesn’t serve your purpose, you’re quick to get rid of it. Is this how you’ll be of any use to humanity, huh, you tin can!</question>
+    <answer1>The things you can not fix start to become a hindrance</answer1>
+    <answer2>The weak cannot survive in nature for long</answer2>
+    <nextdialogueindex1>5</nextdialogueindex1>
+    <nextdialogueindex2>5</nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>I was the one working to feed them, not you. So, it wasn’t your place to make that decision</question>
+    <answer1>All the rules are set in place to maintain order</answer1>
+    <answer2>You are all citizens of this country, meaning you are our responsibility</answer2>
+    <nextdialogueindex1>6</nextdialogueindex1>
+    <nextdialogueindex2>6</nextdialogueindex2>
+</dialogues>
+
+<dialogue>
+    <question>Curse your rules, and curse your country. I wish you had killed me along with my family</question>
+    <answer1><Leave></answer1>
+    <answer2></answer2>
+    <nextdialogueindex1>-1</nextdialogueindex1>
+    <nextdialogueindex2>-1</nextdialogueindex2>
+</dialogues>

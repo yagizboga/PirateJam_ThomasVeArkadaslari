@@ -35,6 +35,7 @@ public class Repair : MonoBehaviour
                 {
                     hammer.SetActive(true);
                 }
+                GetComponent<AudioSource>().Play();
             }
             else
             {
@@ -43,6 +44,7 @@ public class Repair : MonoBehaviour
                 {
                     hammer.SetActive(false);
                 }
+                GetComponent<AudioSource>().Pause();
             }
         }
     }
