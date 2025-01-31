@@ -9,7 +9,7 @@ public class ZeplinMovement : MonoBehaviour
     public Transform spawnFloor;
     public GameObject enemy;
 
-    private float spawnCoolDown = 2f;
+    private float spawnCoolDown = 4f;
     private float moveDuration = 4f; 
 
     void Start()
@@ -32,7 +32,7 @@ public class ZeplinMovement : MonoBehaviour
 
     IEnumerator EnemySpawn()
     {
-        float spawnDuration = Random.Range(10f, 20f);
+        float spawnDuration = Random.Range(30f, 60f);
         float elapsedTime = 0f;
 
         while (elapsedTime < spawnDuration)
