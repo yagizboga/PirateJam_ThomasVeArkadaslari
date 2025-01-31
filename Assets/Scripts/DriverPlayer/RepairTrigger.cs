@@ -1,3 +1,4 @@
+using Unity.Properties;
 using UnityEngine;
 
 public class RepairTrigger : MonoBehaviour
@@ -9,6 +10,8 @@ public class RepairTrigger : MonoBehaviour
     private float repairTime = 10f; 
     private float repairTimer = 0f;
     private PlayerMovement driverMovement;
+    GameObject trainbody;
+    bool cantakedamage = true;
 
     public bool isBroken = false; 
 
@@ -17,9 +20,11 @@ public class RepairTrigger : MonoBehaviour
         driver = GameObject.FindGameObjectWithTag("DriverPlayer");
         driverMovement = driver.GetComponent<PlayerMovement>();  
         repair = driver.GetComponent<Repair>();
+        trainbody = GameObject.FindGameObjectWithTag("trainbody");
     }
     private void Update()
     {
+        Debug.Log(isBroken);
         if (driverMovement.isActivePlayer)
         {
             if (canRepair && Input.GetMouseButton(0) && isBroken)
@@ -31,6 +36,7 @@ public class RepairTrigger : MonoBehaviour
                     Debug.Log("Repair completed");
                     isBroken = false;
                     canRepair = false;
+                    cantakedamage = true;
                     repair.SetCanRepair(false);
                     repairTimer = 0f;
 
@@ -41,6 +47,10 @@ public class RepairTrigger : MonoBehaviour
             {
                 repairTimer = 0f;
             }
+        }
+        if(isBroken && cantakedamage){
+            trainbody.GetComponent<TrainHealth>().TrainTakeDamage(10);
+            cantakedamage = false;
         }
     }
 

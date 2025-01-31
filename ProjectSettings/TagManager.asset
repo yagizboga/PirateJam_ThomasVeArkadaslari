@@ -27,6 +27,8 @@ TagManager:
   - trainfront
   - repairtrigger
   - CinemachineTarget
+  - dialogue
+  - trainbody
   layers:
   - Default
   - TransparentFX

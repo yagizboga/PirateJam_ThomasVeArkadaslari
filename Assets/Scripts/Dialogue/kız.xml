@@ -50,12 +50,14 @@
     <answer2>You are all citizens of this country, meaning you are our responsibility</answer2>
     <nextdialogueindex1>6</nextdialogueindex1>
     <nextdialogueindex2>6</nextdialogueindex2>
-</dialogues>
+</dialogue>
 
 <dialogue>
     <question>Curse your rules, and curse your country. I wish you had killed me along with my family</question>
-    <answer1><Leave></answer1>
+    <answer1>Leave</answer1>
     <answer2></answer2>
     <nextdialogueindex1>-1</nextdialogueindex1>
     <nextdialogueindex2>-1</nextdialogueindex2>
+</dialogue>
+
 </dialogues>
