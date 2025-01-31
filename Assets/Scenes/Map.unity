@@ -515,10 +515,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoreGameplay
       objectReference: {fileID: 0}
-    - target: {fileID: 4345445508249430510, guid: cbf1d1b0af8bf534c8f4301ceb0693a5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4833900199355627394, guid: cbf1d1b0af8bf534c8f4301ceb0693a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1500
