@@ -20,6 +20,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private DriverUI driverUI;
     [SerializeField] private CoalPlayerUI coalPlayerUI;
 
+    private bool isRegening = false;
+
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -33,26 +35,8 @@ public class PlayerHealth : MonoBehaviour
         health -= hit;
         lastDamageTime = Time.time;
 
-        if (gameObject.CompareTag("shooter"))
-        {
-            shooterUI.UpdateHealth(health);
-            //Debug.Log("shooter health: " + health);
-        }
-            
+        UpdateHealthUI();
 
-        if (gameObject.CompareTag("DriverPlayer"))
-        {
-            driverUI.UpdateHealth(health);
-            //Debug.Log("DriverPlayer health: " + health);
-        }
-            
-
-        if (gameObject.CompareTag("CoalPlayer"))
-        {
-            coalPlayerUI.UpdateHealth(health);
-            //Debug.Log("CoalPlayer health: " + health);
-        }
-            
 
         if (health <= 0 && !isDead)
         {
@@ -116,8 +100,14 @@ public class PlayerHealth : MonoBehaviour
             if (Time.time - lastDamageTime >= regenDelay && health < maxHealth)
             {
                 health += regenAmount;
+                UpdateHealthUI();
+                isRegening = true;
                 health = Mathf.Clamp(health, 0, maxHealth);
                 //Debug.Log($"Health regenerated to: {health}");
+            }
+            if(health == maxHealth)
+            {
+                isRegening = false;
             }
         }
     }
@@ -130,6 +120,31 @@ public class PlayerHealth : MonoBehaviour
     public int GetCurrentHealth()
     {
         return health;
+    }
+
+    public bool GetIsRegening() { return isRegening; }
+
+    private void UpdateHealthUI()
+    {
+        if (gameObject.CompareTag("shooter"))
+        {
+            shooterUI.UpdateHealth(health);
+            //Debug.Log("shooter health: " + health);
+        }
+
+
+        if (gameObject.CompareTag("DriverPlayer"))
+        {
+            driverUI.UpdateHealth(health);
+            //Debug.Log("DriverPlayer health: " + health);
+        }
+
+
+        if (gameObject.CompareTag("CoalPlayer"))
+        {
+            coalPlayerUI.UpdateHealth(health);
+            //Debug.Log("CoalPlayer health: " + health);
+        }
     }
 
 }

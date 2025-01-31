@@ -125,6 +125,8 @@ public class CharacterManager : MonoBehaviour
     private void LateUpdate()
     {
         FollowActivePlayerXZ();
+        UpdateAlertBulps();
+
     }
 
     private void ChangeUI()
@@ -303,5 +305,69 @@ public class CharacterManager : MonoBehaviour
         shooterBulpAfk.SetActive(false);
         shooterBulpActive.SetActive(true);
         shooterBulpAlert.SetActive(false);
+    }
+
+    private void UpdateAlertBulps()
+    {
+        if (driverPlayerHealth.GetIsRegening() == false && driverPlayerHealth.GetCurrentHealth() < 9)
+        {
+            driverBulpAfk.SetActive(false);
+            driverBulpActive.SetActive(false);
+            driverBulpAlert.SetActive(true);
+        }
+        else
+        {
+            driverBulpAlert.SetActive(false);
+            if (activePlayer == driverPlayerObj)
+            {
+                driverBulpActive.SetActive(true);
+                driverBulpAfk.SetActive(false);
+            }
+            else
+            {
+                driverBulpActive.SetActive(false);
+                driverBulpAfk.SetActive(true);
+            }
+        }
+        if (coalPlayerHealth.GetIsRegening() == false && coalPlayerHealth.GetCurrentHealth() < 9)
+        {
+            coalBulpAfk.SetActive(false);
+            coalBulpActive.SetActive(false);
+            coalBulpAlert.SetActive(true);
+        }
+        else
+        {
+            coalBulpAlert.SetActive(false);
+            if(activePlayer == coalPlayerObj)
+            {
+                coalBulpActive.SetActive(true);
+                coalBulpAfk.SetActive(false);
+            }
+            else
+            {
+                coalBulpActive.SetActive(false);
+                coalBulpAfk.SetActive(true);
+            }
+        }
+        if (shooterPlayerHealth.GetIsRegening() == false && shooterPlayerHealth.GetCurrentHealth() < 9)
+        {
+            shooterBulpAfk.SetActive(false);
+            shooterBulpActive.SetActive(false);
+            shooterBulpAlert.SetActive(true);
+        }
+        else
+        {
+            shooterBulpAlert.SetActive(false);
+            if (activePlayer == shooterPlayerObj)
+            {
+                shooterBulpActive.SetActive(true);
+                shooterBulpAfk.SetActive(false);
+            }
+            else
+            {
+                shooterBulpActive.SetActive(false);
+                shooterBulpAfk.SetActive(true);
+            }
+        }
     }
 }
