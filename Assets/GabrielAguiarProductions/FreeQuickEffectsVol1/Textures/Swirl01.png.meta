@@ -1,17 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< Updated upstream:Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/Swirl01.png.meta
 guid: 240b8c1374f4dc54cbc8e879bb77cbc0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
-========
-guid: ac45fe48c5aba4c4991df6b56562289a
-TextureImporter:
-  internalIDToNameTable: []
-  externalObjects: {}
-  serializedVersion: 11
->>>>>>>> Stashed changes:Assets/Agarkova_CG/Beard_man/Art/Textures/Beard_man_body/Beard_man_body_albedo.png.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -28,10 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -69,17 +63,13 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-<<<<<<<< Updated upstream:Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/Swirl01.png.meta
   applyGammaDecoding: 1
   swizzle: 50462976
   cookieLightType: 1
-========
-  applyGammaDecoding: 0
->>>>>>>> Stashed changes:Assets/Agarkova_CG/Beard_man/Art/Textures/Beard_man_body/Beard_man_body_albedo.png.meta
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -87,11 +77,12 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -99,16 +90,12 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-<<<<<<<< Updated upstream:Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/Swirl01.png.meta
     buildTarget: Server
     maxTextureSize: 2048
-========
-    buildTarget: WebGL
-    maxTextureSize: 4096
->>>>>>>> Stashed changes:Assets/Agarkova_CG/Beard_man/Art/Textures/Beard_man_body/Beard_man_body_albedo.png.meta
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -116,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -131,21 +119,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-<<<<<<<< Updated upstream:Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/Swirl01.png.meta
     nameFileIdTable: {}
   mipmapLimitGroupName: 
-========
-  spritePackingTag: 
->>>>>>>> Stashed changes:Assets/Agarkova_CG/Beard_man/Art/Textures/Beard_man_body/Beard_man_body_albedo.png.meta
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 221725
-  packageName: Beard man in jeans and shirt
-  packageVersion: 1.0
-  assetPath: Assets/Agarkova_CG/Beard_man/Art/Textures/Beard_man_body/Beard_man_body_albedo.png
-  uploadId: 498365
