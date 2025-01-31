@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class dialoguetrigger : MonoBehaviour
 {
     bool canDialogue = false;
     bool isDialogue = false;
     GameObject dialogueSystem;
+    [SerializeField] TextAsset dialogue;
 
     void Start(){
         dialogueSystem = GameObject.FindGameObjectWithTag("dialogue");
@@ -29,12 +31,14 @@ public class dialoguetrigger : MonoBehaviour
 
         if(canDialogue && Input.GetKey("e")){
             isDialogue = true;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
+            UnityEngine.Cursor.visible = true;
+            UnityEngine.Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0;
         }
         if(canDialogue && isDialogue && dialogueSystem.GetComponent<DialogueSystem>().isondialogue){
             dialogueSystem.SetActive(true);
+            dialogueSystem.GetComponent<DialogueSystem>().LoadDialogue(dialogue);
+            dialogueSystem.GetComponent<DialogueSystem>().ShowDialogue(0);
         }
         if(dialogueSystem.GetComponent<DialogueSystem>().dialogue_ended){
             gameObject.SetActive(false);

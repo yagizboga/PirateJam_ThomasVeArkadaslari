@@ -22,7 +22,7 @@ public class DialogueSystem : MonoBehaviour
         ShowDialogue(currentdialogueindex);
     }
 
-    void LoadDialogue(TextAsset xmlFile){
+    public void LoadDialogue(TextAsset xmlFile){
         if(xmlFile!=null){
             XmlSerializer serializer = new XmlSerializer(typeof(DialogueCollection));
             using(StringReader reader = new StringReader(xmlFile.text)){
@@ -35,7 +35,7 @@ public class DialogueSystem : MonoBehaviour
         }
     }
 
-    void ShowDialogue(int index){
+    public void ShowDialogue(int index){
         if(dialogueCollection != null && index>=0 && index <dialogueCollection.dialogues.Length){
             DialogueData currentDialogue = dialogueCollection.dialogues[index];
             dialogue.text = currentDialogue.question;

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<dialogues>
+
+
+<dialogue>
+    <question>Who are you?</question>
+    <answer1>We are NovaMind</answer1>
+    <answer2>You do not need to know that</answer2>
+    <nextdialogueindex1>1</nextdialogueindex1>
+    <nextdialogueindex2>2</nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>You… What are you doing here?</question>
+    <answer1>We are on a classified mission</answer1>
+    <answer2>That information is confidential</answer2>
+    <nextdialogueindex1>3</nextdialogueindex1>
+    <nextdialogueindex2>3</nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>You’re NovaMind’s soldiers, aren’t you? What are you doing here?</question>
+    <answer1>We are on a classified mission</answer1>
+    <answer2>That information is confidential</answer2>
+    <nextdialogueindex1>3</nextdialogueindex1>
+    <nextdialogueindex2>3</nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>Your mission is related to the facility up ahead, that much is clear. But it’s been out of operation for a long time</question>
+    <answer1>What do you know about that facility?</answer1>
+    <answer2>Who are you?</answer2>
+    <nextdialogueindex1>5</nextdialogueindex1>
+    <nextdialogueindex2>4</nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>My name is Nancy. That used to be my workplace. I worked with Nova… with NovaMind. Or at least, the NovaMind I knew</question>
+    <answer1>What do you mean, “the NovaMind you knew”?</answer1>
+    <answer2></answer2>
+    <nextdialogueindex1>6</nextdialogueindex1>
+    <nextdialogueindex2></nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>That used to be my workplace. I worked with Nova… with NovaMind. Or at least, the NovaMind I knew</question>
+    <answer1>What do you mean, “the NovaMind you knew”?</answer1>
+    <answer2></answer2>
+    <nextdialogueindex1>6</nextdialogueindex1>
+    <nextdialogueindex2></nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>The NovaMind I knew was… different. He tried to solve humanity’s problems in other ways. It wouldn’t stop until it found the best possible solution. And…</question>
+    <answer1>And?</answer1>
+    <answer2></answer2>
+    <nextdialogueindex1>7</nextdialogueindex1>
+    <nextdialogueindex2></nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>It doesn’t matter anymore. He’s dead now. At least, to me</question>
+    <answer1><Continue></answer1>
+    <answer2></answer2>
+    <nextdialogueindex1>8</nextdialogueindex1>
+    <nextdialogueindex2></nextdialogueindex2>
+</dialogue>
+
+<dialogue>
+    <question>Now leave. Whatever your mission is, go carry it out for your master</question>
+    <answer1><Leave></answer1>
+    <answer2></answer2>
+    <nextdialogueindex1>-1</nextdialogueindex1>
+    <nextdialogueindex2></nextdialogueindex2>
+</dialogue>
+
+
+
+
+</dialogues>
