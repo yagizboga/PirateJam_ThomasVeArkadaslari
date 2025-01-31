@@ -6,10 +6,11 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] List<GameObject> maps;
     [SerializeField] AudioClip accelerationSound;
     [SerializeField] AudioClip brakeSound;
+    [SerializeField] BoxCollider[] colliders;
     List<GameObject> activemaps;
     Grid grid;
     int count = 1;
-    GameObject gas;
+    [SerializeField] GameObject gas;
     float coalBalance;
 
     private float speedInit = 0f;
@@ -23,7 +24,7 @@ public class MapGenerator : MonoBehaviour
 
     void Start()
     {
-        gas = GameObject.FindGameObjectWithTag("Gas");
+        //gas = GameObject.FindGameObjectWithTag("Gas");
         activemaps = new List<GameObject>();
         grid = new Grid(2, 1, 1000);
         activemaps.Add(Instantiate(maps[0], grid.GetMap(1, 0), Quaternion.identity, this.transform));
@@ -82,6 +83,17 @@ public class MapGenerator : MonoBehaviour
             finalSpeed = 0;
             gas.GetComponent<gas>().setgas0();
             HandleTrainSounds();
+        }
+
+        if(finalSpeed > 20){
+            for(int i=0;i<colliders.Length;i++){
+                colliders[i].isTrigger = false;
+            }
+        }
+        else{
+            for(int i=0;i<colliders.Length;i++){
+                colliders[i].isTrigger = true;
+            }
         }
     }
 

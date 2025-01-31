@@ -8,6 +8,7 @@ public class BombPlant : MonoBehaviour
     public GameObject bombHighlightObj;
     public ParticleSystem explodeParticle;
     [SerializeField] GameObject deletedobject;
+    [SerializeField] AudioSource bomb;
 
     private void Start()
     {
@@ -43,6 +44,7 @@ public class BombPlant : MonoBehaviour
         bombObj.SetActive(true);
         bombHighlightObj.SetActive(false);
         StartCoroutine(Explosion());
+        bomb.Play();
     }
 
     private IEnumerator Explosion()
