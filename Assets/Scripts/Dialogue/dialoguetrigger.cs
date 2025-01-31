@@ -33,8 +33,11 @@ public class dialoguetrigger : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0;
         }
-        if(canDialogue && isDialogue){
+        if(canDialogue && isDialogue && dialogueSystem.GetComponent<DialogueSystem>().isondialogue){
             dialogueSystem.SetActive(true);
+        }
+        if(dialogueSystem.GetComponent<DialogueSystem>().dialogue_ended){
+            gameObject.SetActive(false);
         }
     }
     

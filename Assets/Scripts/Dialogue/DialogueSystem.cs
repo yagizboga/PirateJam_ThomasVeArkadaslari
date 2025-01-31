@@ -13,6 +13,8 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] TextAsset dialoguefile;
     int currentdialogueindex=0;
     DialogueCollection dialogueCollection;
+    public bool isondialogue = false;
+    public bool dialogue_ended = false;
 
 
     void Start(){
@@ -39,6 +41,16 @@ public class DialogueSystem : MonoBehaviour
             dialogue.text = currentDialogue.question;
             answer1text.text = currentDialogue.answer1;
             answer2text.text = currentDialogue.answer2;
+            isondialogue = true;
+            dialogue_ended = false;
+        }
+        if(index < 0){
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
+            gameObject.SetActive(false);
+            isondialogue = false;
+            dialogue_ended = true;
         }
     }
 
